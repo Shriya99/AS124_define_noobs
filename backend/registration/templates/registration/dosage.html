@@ -1,0 +1,106 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css'%}">
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Dosage Update</title>
+</head>
+<body>
+    <div>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar" style="height: : 12%">
+        <div class="container">
+                    <a href="/" style="width: 5%;"><img class="flex-shrink-1 card-img-top" src="{% static 'assets/img/logo.png'%}" style="width: 95%;"></a>
+
+
+                    <a class="navbar-brand text-right text-black" id="main_title" href="/home" style="padding-left: 17px;">
+                        <strong>POSHAN SAATHI</strong>
+                    </a>
+
+                    <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navcol-1">
+                        <ul class="nav navbar-nav shadow-sm d-xl-flex ml-auto" data-toggle="tooltip" data-bs-tooltip="" data-placement="bottom" style="padding: 12px;">
+
+
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/event/recent" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">EVENTS</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/bmi" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">BMI CALCULATOR</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/calorie" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">CALORIE CALCULATOR</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/homeform/homereg" style="background-color: rgba(255,255,255,0.15); padding: 8px 12px;">HOME VISIT REGISTER</a>
+                            </li>
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/logout" style="background-color: rgba(255,255,255,0.15); padding: 8px 12px;">Log Out</a>
+                            </li>
+                        
+
+                        </ul>
+                    </div>
+                </div>
+    </nav>
+
+</div>
+
+
+
+    <main class="page" >
+        <section class="clean-block clean-form dark">
+            <div class="container" " >
+                <div class="block-heading">
+                    <h2 class="text-info" style="margin-top: 44px;">Dosages Update</h2>
+                    <p>Please fill the dosage information and scheduled date for next visit.</p>
+                </div>
+
+                <form action="/registration/updated/" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+
+                    <h5 class="text-left text-info">
+                        <strong>Patient's UID : {{matchedaadhar}}</strong>
+                    </h5>
+                    <div class="form-group ">
+                        <label class="FormField__Label" for="dosage_details">Dosage Details<br></label>
+                        <input class="border rounded shadow form-control FormField__Input" type="text" id="dosage_details" style="height: 75px;" placeholder="Enter Dosage Details" required="" name="dosage_details">
+                    </div>
+                    <div class="form-group ">
+                        <label>Next Dosage Date</label>
+                        <input class="shadow form-control" id="dosage_date" type="date" placeholder="Enter Next Dosage Date" required="" name="dosage_date">
+                    </div>
+
+                        <input class="form-control" type="hidden" id="matchedaadhar" name="matchedaadhar" value="{{matchedaadhar}}">
+
+                    <div class="form-group shift">
+                        <button class="btn btn-primary btn-block" type="submit">Update Dosage</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="{% static 'assets/js/theme.js'%}"></script>
+
+</body>
+</html>

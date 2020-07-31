@@ -1,0 +1,120 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Failed</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/Header-Blue.css' %}">
+    <style>
+        .success{
+            border: 1px solid white;
+            background-color: white;
+            border-radius: 20px;
+        }
+        .shift{
+            padding-top: 5%;
+            float: none;
+            margin-left: 45%;
+            
+        }
+        .buttons{
+            padding-bottom: 5%;
+            margin-left: 30%;
+        }
+        span{
+            padding-left: 5%;
+        }
+    </style>
+</head>
+
+
+<body class="bg-gradient-primary" style="background-color: white;">
+    <!-- Start: Header Blue -->
+    <div>
+        <!-- Start: Header -->
+        <div class="header-blue" style="padding: 0px;background-color: rgba(255,255,255,0.25);">
+            <!-- Start: Navigation Clean -->
+            <nav class="navbar navbar-light navbar-expand-lg navigation-clean fixed-top " style="background-color: rgba(0,0,0,0.9);">
+                <div class="container">
+                    <a href="/" style="width: 4%;"><img class="flex-shrink-1 card-img-top" src="{% static 'assets/img/logo.png'%}" style="width: 95%;"></a>
+
+
+                    <a class="navbar-brand text-right text-white" id="main_title" href="/home" style="padding-left: 17px;">
+                        <strong>POSHAN SAATHI</strong>
+                    </a>
+
+                    <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1" style="background-color: rgba(255,255,255,0.2);">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navcol-1">
+                        <ul class="nav navbar-nav shadow-sm d-xl-flex ml-auto" data-toggle="tooltip" data-bs-tooltip="" data-placement="bottom" style="padding: 12px;">
+
+
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/event/recent" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">EVENTS</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/bmi" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">BMI CALCULATOR</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/calorie" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">CALORIE CALCULATOR</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/homeform/homereg" style="background-color: rgba(255,255,255,0.15); padding: 8px 12px;">HOME VISIT REGISTER</a>
+                            </li>
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/logout" style="background-color: rgba(255,255,255,0.15); padding: 8px 12px;">Log Out</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End: Navigation Clean -->
+        </div>
+        <!-- End: Header -->
+    </div>
+  
+    <!-- End: Header Blue -->
+
+    <main class="page" >
+        <section class="clean-block clean-form dark">
+            <div class="container" >
+                <div class="block-heading">
+                  <br/><br/><br/>
+                </div>
+
+                <div class="success">
+                    <div class="shift">
+                        <img src="{% static 'assets/img/cross.png' %}" height="15%" width="15%">
+                    </div>
+                    <h3 style="text-align: center; padding: 5%; font-weight: bold;">{{message}}</h3>
+                    <div class = "buttons">
+                    
+                        <a href="/"><button class="btn btn-primary btn-block "  style="width: 25%; display: inline; padding: 1%;" type="button">Home</button></a>
+                    <span></span>
+                        <a href="{{link}}"><button class="btn btn-primary btn-block" style="width: 25%; display: inline; padding: 1%;" type="buttion">{{data}}</button></a>
+                    </div>
+                    
+                </div>
+</div>
+</section>
+</main>
+</body>
+</html>
+                   

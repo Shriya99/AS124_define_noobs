@@ -1,0 +1,384 @@
+
+<!DOCTYPE html>
+{% load static %}
+{% static "images" as baseUrl %}
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>HOME</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=ABeeZee">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Alfa+Slab+One">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <link rel="stylesheet" href="{% static 'assets/fonts/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/fonts/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Header-Blue.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Responsive-Card-Item-List.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/Responsive-footer.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/best-carousel-slide.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+
+</head>
+
+<body style="background-color: rgba(249,245,240,0.97);">
+
+    <!-- Start: Header Blue -->
+    <div>
+        <!-- Start: Header -->
+        <div class="header-blue" style="padding: 0px;background-color: rgba(255,255,255,0.25);">
+            <!-- Start: Navigation Clean -->
+            <nav class="navbar navbar-light navbar-expand-lg navigation-clean fixed-top " style="background-color: rgba(0,0,0,0.9);">
+                <div class="container">
+                    <a href="/#" style="width: 4%;"><img class="flex-shrink-1 card-img-top" src="{% static 'assets/img/logo.png'%}" style="width: 95%;"></a>
+
+
+                    <a class="navbar-brand text-right text-white" id="main_title" href="#" style="padding-left: 17px;">
+                    	<strong>POSHAN SAATHI</strong>
+                    </a>
+
+                    <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1" style="background-color: rgba(255,255,255,0.2);">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navcol-1">
+                        <ul class="nav navbar-nav shadow-sm d-xl-flex ml-auto" data-toggle="tooltip" data-bs-tooltip="" data-placement="bottom" style="padding: 12px;">
+
+
+                           <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/event/recent" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">EVENTS</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/bmi" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">BMI CALCULATOR</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/calorie" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">CALORIE CALCULATOR</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/homeform/homereg" style="background-color: rgba(255,255,255,0.15); padding: 8px 12px;">HOME VISIT REGISTER</a>
+                            </li>
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/logout" style="background-color: rgba(255,255,255,0.15); padding: 8px 12px;">Log Out</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End: Navigation Clean -->
+        </div>
+        <!-- End: Header -->
+    </div>
+
+    <!-- End: Header Blue -->
+    <section id="carousel" style="margin-top: 8%;">
+        <div class="carousel slide" data-ride="carousel" id="carousel-1" >
+            <div class="carousel-inner" role="listbox" >
+                <div class="carousel-item active" >
+                    <div class="jumbotron pulse animated hero-nature carousel-hero" style="background-image: url(&quot;{% static 'assets/img/img-21.jpg'%}&quot;);height: 600px; ">
+                        <div class="col-lg-10 align-self-center mx-auto">
+                        <h1 class="display-4 text-monospace text-uppercase text-center shadow flex-grow-1" style="background-color: rgba(255,255,255,0.41);">
+                            <strong class="text-center d-inline-block" style="color: rgb(77,22,19);">POSHAN ABHIYAAN</strong>
+                        </h1>
+                        <hr style="color: rgb(0,0,0);background-color: #000000;">
+                        <br/>
+                        <br/>
+                        
+
+                    </div>
+
+                    <div class="col-lg-8 mx-auto">
+                        <p class="text-monospace text-center text-faded mb-5" style="color: #000000;background-color: rgba(255,255,255,0.5);font-size: 30px ;font-family: 'Source Sans Pro', sans-serif;"><b>Fighting malnutrition with IT.<br>सही पोषण देश रोशन</b></p>
+                        
+                    </div>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="jumbotron pulse animated hero-photography carousel-hero" style="background-image: url(&quot;{% static 'assets/img/slide2.png'%}&quot;);height: 600px;">
+                        <div class="col-lg-10 align-self-center mx-auto" >
+                        <h1 class="display-4 text-monospace text-uppercase text-center shadow flex-grow-1" style="background-color: rgba(255,255,255,0.41);">
+                            <strong class="text-center d-inline-block" style="color: rgb(77,22,19);">POSHAN ABHIYAAN</strong>
+                        </h1>
+                        <hr style="color: rgb(0,0,0);background-color: #000000;">
+                        <br/>
+                        <br/>
+                        
+
+                    </div>
+
+                    <div class="col-lg-8 mx-auto">
+                        <p class="text-monospace text-center text-faded mb-5" style="color: #000000;background-color: rgba(255,255,255,0.5);font-size: 30px ;font-family: 'Source Sans Pro', sans-serif;"><b>Fighting malnutrition with IT.<br>सही पोषण देश रोशन</b></p>
+                    </div>
+                    </div>
+                </div>
+                <div class="carousel-item ">
+                    <div class="jumbotron pulse animated hero-technology carousel-hero" style="background-image: url(&quot;{% static 'assets/img/Implementation-of-PoshanAbhiyaan.png'%}&quot;);height: 600px;">
+
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a class="carousel-control-prev" href="#carousel-1" role="button" data-slide="prev">
+                    <i class="fa fa-chevron-left"></i>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carousel-1" role="button" data-slide="next">
+                    <i class="fa fa-chevron-right"></i>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+            <ol
+                class="carousel-indicators">
+                <li data-target="#carousel-1" data-slide-to="0"></li>
+                <li data-target="#carousel-1" data-slide-to="1"></li>
+                <li data-target="#carousel-1" data-slide-to="2" class="active"></li>
+                </ol>
+        </div>
+    </section>
+
+    <!-- Start: 1 Row 4 Columns -->
+    <div style="padding: 30px;">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-4" style="width: 250px;background-color: rgba(184,181,181,0.25);">
+                    <div class="text-capitalize border rounded shadow card" style="margin: 5%;"><a class="text-center" href="/registration/new-patient/"><img class="card-img-top" src="{% static 'assets/img/btn-new-patients.png'%}" style="padding: 20px;"></a>
+                        <div class="text-center card-body" style="padding: 6px;">
+                            <h5>New Patient Registration</h5>
+                        </div>
+                        <div class="card-footer text-center"><small>
+                            <a href="/registration/new-patient/"><i class="fa fa-eye pr-1"></i>Register Now<br></a></small></div>
+                    </div>
+                </div>
+
+                
+                <div class="col-lg-4" style="width: 250px;background-color: rgba(184,181,181,0.25);">
+                    <div class="text-capitalize border rounded shadow card" style="margin: 5%;"><a class="text-center" href="/registration/attendance/"><img class="card-img-top" src="{% static 'assets/img/82-824950_kicksite-attendance-tracking-icon-student-attendance-icon.png'%}" style="padding: 20px;"></a>
+              <div class="text-center card-body" style="padding: 6px;">
+                            <h5>Attendance/Dosage Update</h5>
+                        </div>
+                        <div class="card-footer text-center"><small><a href="/registration/attendance/"><i class="fa fa-eye pr-1"></i>Update Now<br></a></small></div>
+                    </div>
+                </div>
+                <div class="col-lg-4" style="width: 250px;background-color: rgba(184,181,181,0.25);">
+                    <div class="text-capitalize border rounded shadow card" style="margin: 5%;"><a class="text-center" href="/registration/getdata/"><img class="card-img-top" src="{% static 'assets/img/download.png'%}" style="padding: 20px;"></a>
+                        <div class="text-center card-body" style="padding: 6px;">
+                            <h5>Get Patient's Data<br></h5>
+                        </div>
+                        <div class="card-footer text-center"><small><a href="/registration/getdata/"><i class="fa fa-eye pr-1"></i>Get Data<br></a></small></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End: 1 Row 4 Columns -->
+    <!-- Start: 2 Rows 1+1 Columns -->
+<div id="st-at">
+<div class="row " style="background-color: rgba(249,245,240,0.97);height: 90%; " >
+<div class="shadow border-rounded" style="background-color: rgba(255,255,255,1); width: 90%; margin-left: 5%; padding:2%;">
+    <div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="text-monospace text-center border rounded shadow flex-grow-1" style="font-family: 'Source Sans Pro', sans-serif;font-size: 45px;background-color: rgba(255,255,255,0.97); color: burlywood ;"><strong>LOCATION-WISE STATISTICS</strong></h1>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    <!-- End: 2 Rows 1+1 Columns -->
+    <!-- Start: 2 Rows 1+3 Columns -->
+    <div class="col-lg-12" >
+    <div class="card text-white shadow ">
+        <div class="card-body" style="width: 100%; margin-top: 2%;" >
+
+                    
+                    
+                <form class="search-form form-inline" method="POST" action="/home/#st-at"  style="float:center;" >
+                    
+                  
+                    
+                
+                    {% csrf_token %}
+                  <input class="form-control text-dark" type="search" aria-label="Search" name="name" placeholder="enter location..." required style="  margin-left:5%;width: 80%">
+
+                  <button class="btn btn-outline-warning ml-1" type="submit">Search</button>
+
+                </form>
+        </div>
+
+    <div id="container" style="width:65%; height: 100%; margin-left: 20%;padding: 2%;">
+      <canvas id="pie-chart" width="90"></canvas>
+    </div>
+    <form class="search-form form-inline" method="GET"  action="/home/#st-at" style="float:center;" >
+    <div id="container" style="margin-left: 48%;padding: 2%;">
+            <a><button class="btn btn-outline-warning ml-0" type="submit" >Pie</button></a>
+    </div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+  {% if check == False %}
+    <script>
+
+      var config = {
+
+          type: 'doughnut',
+        data: {
+          datasets: [{
+            data: {{ data|safe }},
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.8)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)',
+                'rgba(153, 102, 205, 0.6)',
+                'rgba(255, 159, 64, 0.6)',
+
+                'rgba(168, 180, 132, 0.5)',
+                'rgba(90, 162, 200, 0.6)',
+                'rgba(38, 206, 86, 0.6)',
+                'rgba(150, 192, 192, 0.6)',
+                'rgba(153, 38, 255, 0.6)',
+                'rgba(10, 200, 64, 0.6)'
+              
+            ],
+            label: 'Visit_Status'
+          }],
+          labels: {{ labels|safe }}
+        },
+        options: {
+          responsive: true
+        }
+      };
+
+      window.onload = function() {
+        var ctx = document.getElementById('pie-chart').getContext('2d');
+        window.myPie = new Chart(ctx, config);
+      };
+
+    </script>
+    {% else %}
+    <script>
+       
+
+      var config = {
+
+          type: 'bar',
+        data: {
+          datasets: [{
+            data: {{ data|safe }},
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.8)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)',
+                'rgba(153, 102, 205, 0.6)',
+                'rgba(255, 159, 64, 0.6)',
+
+                'rgba(168, 180, 132, 0.5)',
+                'rgba(90, 162, 200, 0.6)',
+                'rgba(38, 206, 86, 0.6)',
+                'rgba(150, 192, 192, 0.6)',
+                'rgba(153, 38, 255, 0.6)',
+                'rgba(10, 200, 64, 0.6)'
+            ],
+            label: 'Visit_Status'
+          }],
+          labels: {{ labels|safe }}
+        },
+        options: {
+          responsive: true
+        }
+      };
+
+      window.onload = function() {
+        var ctx = document.getElementById('pie-chart').getContext('2d');
+        window.myPie = new Chart(ctx, config);
+      };
+
+    </script>
+  {% endif %}
+
+    <!--<div>
+        <div class="container">
+            <div class="row" style="padding: 16px;">
+                <div class='col-md-4'>
+    <div class="card text-white bg-info shadow">
+        <div class="card-body" style="background-color: rgba(60,60,209,0.45);">
+            <p class="col-sm-12">Monthly Graph</p>
+            <div style="background-color: rgba(237,209,209,0.65);"><img src="{% static 'assets/img/images (1).png'%}" width="100%" height="100%" /></div>
+        </div>
+    </div>
+</div>
+<div class='col-md-4'>
+    <div class="card text-white bg-info shadow">
+        <div class="card-body" style="background-color: rgba(60,60,209,0.45);">
+            <p class="col-sm-12">Monthly Graph</p>
+            <div style="background-color: rgba(237,209,209,0.65);"><img src="{% static 'assets/img/sd.jpg'%}" width="100%" height="100%" /></div>
+        </div>
+    </div>
+</div>
+<div class='col-md-4'>
+    <div class="card text-white bg-info shadow">
+        <div class="card-body" style="background-color: rgba(60,60,209,0.45);">
+            <p class="col-sm-12">Monthly Graph</p>
+            <div style="background-color: rgba(237,209,209,0.65);"><img src="{% static 'assets/img/pi2.png'%}" width="100%" height="100%" /></div>
+        </div>
+    </div>
+</div>
+</div>
+            <div class="row" style="padding: 8px;"><div class="col-sm-12">
+    <div class="card text-white bg-info shadow">
+        <div class="card-body" style="background-color: rgba(60,60,209,0.30); height: 10%;">
+            <p class="col-sm-9">Yearly Graph</p>
+            <div style="background-color: rgba(237,209,209,0.65);"><img src="{% static 'assets/img/grph.jpg'%}" width="100%" height="300px" /></div>
+    </div>
+</div>
+
+</div>
+        </div>
+    </div>
+</div>-->
+
+
+        <!-- Start: Responsive footer -->
+        <div style="margin-top:5%;background-color: rgba(58,47,47,0);background-image: url(&quot;{% static 'assets/img/footer.png'%}&quot;);background-size: cover;background-repeat: no-repeat;">
+            <div class="container">
+                <h1 class="text-center" style="font-family:ABeeZee, sans-serif;font-size:46px;color:rgb(0,0,0);"></h1>
+                <hr>
+                <!-- Start: Links -->
+                <ul class="list-inline" id="text_decoration" style="margin-top:30px;font-family:ABeeZee, sans-serif;">
+                    <li class="list-inline-item"><a class="decoration" style="color:rgb(0,0,0);font-size:20px;margin-right:10px;" href="#">Home</a></li>
+                    
+                    <li class="list-inline-item"><a style="font-size:20px;color:rgb(0,0,0);margin-right:10px;" href="#">About</a></li>
+                    <li class="list-inline-item"><a style="color:rgb(0,0,0);font-size:20px;margin-right:10px;" href="#">Terms</a></li>
+                    <li class="list-inline-item"><a style="color:rgb(0,0,0);font-size:20px;" href="#">Privacy Policy</a></li>
+                </ul>
+                <!-- End: Links -->
+                
+
+
+                <p class="text-center" style="color:rgb(193,184,184);font-family:ABeeZee, sans-serif;margin-bottom:23px;">Poshan Abhiyaan@ 2020</p>
+            </div>
+        </div>
+        <!-- End: Responsive footer -->
+    </div>
+    <!-- End: 2 Rows 1+3 Columns -->
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+
+</body>
+
+</html>
