@@ -7,7 +7,7 @@ SIH 2020 Grand Finale Repository for P.S. No. AS124 solution , Team - #define_no
 - New Patient Registration
 - Biometric Attendance
 - Dosage Update
-- AUtomatic SMS Reminder
+- Automatic SMS Reminder
 - Printable Patient Data
 - Locationwise Statistics
 - Events Calendar
@@ -17,4 +17,11 @@ SIH 2020 Grand Finale Repository for P.S. No. AS124 solution , Team - #define_no
 
 ### Tech Stack Used
 
-Django,MySQL,Celery,Twilio,Redis and Ngrok Server,HTML,CSS,Bootstrap
+- Django
+- MySQL
+- Celery
+- Twilio
+- Redis and Ngrok Server
+- HTML
+- CSS
+- Bootstrap
