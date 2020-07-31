@@ -3,17 +3,17 @@ SIH 2020 Grand Finale Repository for P.S. No. AS124 solution , Team - #define_no
 
 ### Features
 
--Health Worker Registration and Login
--New Patient Registration
--Biometric Attendance
--Dosage Update
--AUtomatic SMS Reminder
--Printable Patient Data
--Locationwise Statistics
--Events Calendar
--BMI and Calorie Calculator
--Home Visit Register
--Whatsapp Query Portal
+- Health Worker Registration and Login
+- New Patient Registration
+- Biometric Attendance
+- Dosage Update
+- AUtomatic SMS Reminder
+- Printable Patient Data
+- Locationwise Statistics
+- Events Calendar
+- BMI and Calorie Calculator
+- Home Visit Register
+- Whatsapp Query Portal
 
 ### Tech Stack Used
 
