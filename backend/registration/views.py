@@ -21,7 +21,7 @@ from rest_framework.decorators import api_view, parser_classes
 from rest_framework.response import Response
 from rest_framework.exceptions import ParseError
 from rest_framework.parsers import FileUploadParser
-from .models import Register,Dosage
+from .models import Register,Dosage,History
 from twilio.twiml.messaging_response import MessagingResponse
 from django.views.decorators.csrf import csrf_exempt
 from stats_graphs.models import Stats
@@ -64,6 +64,12 @@ def patient_create(request):
 			# with open('aadharimageuploaded'+fullaadhar+'.jpg', 'wb+') as destination:
 			# 	for chunk in aadharimage.chunks():
 			# 		destination.write(chunk)
+			weight = int(weight,base=10)
+			height = int(height, base=10)
+			print(weight)
+			print(height)
+			initial_bmi = (weight)/((height/100)**2)
+			print(initial_bmi)
 			resultstring = ocr('aadharimage'+fullaadhar+'.jpg',fullaadhar,request)
 			if resultstring=='Verified':
 				ver = "Verified"
@@ -75,7 +81,8 @@ def patient_create(request):
 				register.save()
 			dosage_details=""
 			visit_status=False
-			dosage = Dosage(matchedaadhar=fullaadhar,dosage_details=dosage_details,visit_status=visit_status,dosage_date=None,phone_no=phone,loc=camp_loc)
+			#initial_bmi = round(initial_bmi,2)
+			dosage = Dosage(matchedaadhar=fullaadhar,dosage_details=dosage_details,visit_status=visit_status,dosage_date=None,initial_bmi=initial_bmi,phone_no=phone,loc=camp_loc)
 			dosage.save()
 			# os.remove('faceimage' + fullaadhar + '.jpg')
 			os.remove('aadharimage'+fullaadhar+'.jpg')
@@ -237,9 +244,23 @@ def dosage_updated(request):
 			dosage_details = request.POST.get('dosage_details', '')
 			dosage_date = request.POST.get('dosage_date', '')
 			matchedaadhar = request.POST.get('matchedaadhar', '')
+			height = request.POST['height_cm']
+			weight = request.POST['weight']
+			height = "0"+height
+			weight = "0"+weight
+			height = int(height,base=10)
+			weight = int(weight,base=10)
+			print(height)
+			print(weight)
+			if height==0 or weight==0:
+				bmi=0
+			else:
+				bmi = weight/((height/100)**2)
+				bmi = round(bmi,2)
 			visit_status = True
 			dosage_object = Dosage.objects.get(matchedaadhar=matchedaadhar)
 			patient = Register.objects.get(fullaadhar=matchedaadhar)
+			bmi_reg = dosage_object.initial_bmi
 			p = dosage_object.dosage_date
 			if p != None:
 				try:
@@ -248,7 +269,33 @@ def dosage_updated(request):
 				except Stats.DoesNotExist:
 					add_stat = Stats(name=patient.camp_loc.lower(),day=p,visit_count=1)
 					add_stat.save()
-
+			hist_obj, created = History.objects.get_or_create(histaadhar=matchedaadhar)
+			count = hist_obj.history_count
+			count=count+1
+			hist_obj.history_count = count
+			if count==1:
+				hist_obj.history1=dosage_details
+				hist_obj.history_date1=dosage_date
+				hist_obj.bmi1 = bmi_reg if bmi==0 else bmi
+			elif count==2:
+				hist_obj.history2 = dosage_details
+				hist_obj.history_date2 = dosage_date
+				hist_obj.bmi2 = hist_obj.bmi1 if bmi==0 else bmi
+			elif count==3:
+				hist_obj.history3 = dosage_details
+				hist_obj.history_date3 = dosage_date
+				hist_obj.bmi3 = hist_obj.bmi2 if bmi==0 else bmi
+			else:
+				hist_obj.history1 = hist_obj.history2
+				hist_obj.history_date1 = hist_obj.history_date2
+				hist_obj.bmi1 = hist_obj.bmi2
+				hist_obj.history2 = hist_obj.history3
+				hist_obj.history_date2 = hist_obj.history_date3
+				hist_obj.bmi2 = hist_obj.bmi3
+				hist_obj.history3 = dosage_details
+				hist_obj.history_date3 = dosage_date
+				hist_obj.bmi3 = hist_obj.bmi2 if bmi==0 else bmi
+			hist_obj.save()
 			dosage_object.dosage_details = dosage_details
 			dosage_object.dosage_date = dosage_date
 			dosage_object.visit_status = visit_status
@@ -258,26 +305,6 @@ def dosage_updated(request):
 		#trace_back = traceback.format_exc()
 		#message = str(e) + " " + str(trace_back)
 		return render(request,"failure.html" ,{'message':str(e) ,'data':"Try Again", 'link':'/registration/attendance'})
-
-# def broadcast_sms(request):
-# 	message_to_broadcast = ("You missed the dose......")
-# 	client = Client(settings.TWILIO_ACCOUNT_SID, settings.TWILIO_AUTH_TOKEN)
-# 	pat = Dosage.objects.filter(visit_status=False)
-# 	for p in pat:
-# 		# p.visit_status = False
-#
-# 		client.messages.create(to=p.phone_no,
-# 							   from_=settings.TWILIO_NUMBER,
-# 							   body=message_to_broadcast)
-#
-# 	pat1 = Dosage.objects.filter(visit_status=True)
-# 	for p in pat1:
-# 		p.visit_status = False
-#
-# 	#        serializer = PatientSerializer(data, context={'request': request}, many=True)
-#
-# 	return render(request,"success.html" ,{'message':"Message Sent",'data':"Back", 'link':'/registration/broadcast_sms'})
-# 	#return HttpResponse("messages sent", 200)
 
 @login_required
 def get_patient_data(request):
