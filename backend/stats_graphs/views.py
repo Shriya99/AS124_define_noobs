@@ -147,6 +147,13 @@ def bmi(request):
 def calorie(request):
 	return render(request, 'calorie.html')
 
+def bmiuser(request):
+	return render(request, 'bmiuser.html')
+
+
+def calorieuser(request):
+	return render(request, 'calorieuser.html')
+
 
 def logout_request(request):
     logout(request)
