@@ -376,7 +376,7 @@ def whatsApp_portal(request):
 			#msg.media('https://cataas.com/cat')
 			#	responded = True
 			if not responded:
-				msg.body('Type among the given options.....')
+				msg.body('Wrong input. Type 1 for events and type your aadhar number for details.....')
 			#retu##rn str(resp)
 			return HttpResponse(str(resp))
 		else:
