@@ -1,7 +1,9 @@
 # define_noobs-AS124-PoshanSaathi
-SIH 2020 Grand Finale Repository for P.S. No. AS124 solution , Team - #define_noobs
+## Problem Statement : Promoting holistic nutrition among women and children through/with the help of IT for Poshan Abhiyaan.(AS124)
 
-### Features
+### SIH 2020 Grand Finale Repository for P.S. No. AS124 solution , Team - #define_noobs
+
+#### Features
 
 - Health Worker Registration and Login
 - New Patient Registration
@@ -15,7 +17,7 @@ SIH 2020 Grand Finale Repository for P.S. No. AS124 solution , Team - #define_no
 - Home Visit Register
 - Whatsapp Query Portal
 
-### Tech Stack Used
+#### Tech Stack Used
 
 - Django
 - MySQL
