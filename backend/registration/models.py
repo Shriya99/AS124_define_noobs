@@ -28,6 +28,7 @@ class Dosage(models.Model):
     dosage_details = models.CharField(max_length=300)
     visit_status = models.BooleanField(default = False)
     dosage_date = models.DateField(blank=True,null=True,default = '1990-09-09')
+    initial_bmi=models.DecimalField(max_digits=5, decimal_places=2)
     #dosage_date = models.CharField(max_length=50, default='June', null=True)
     phone_no = models.CharField(max_length=13, default='')
     loc=models.CharField(max_length=100,default='')
@@ -44,3 +45,22 @@ class Dosage(models.Model):
 #
 #     def __str__(self):
 #         return self.location
+
+class History(models.Model):
+    histaadhar = models.CharField(max_length=50,unique=True)
+    history1 = models.CharField(max_length=300)
+    history_date1 = models.DateField(blank=True, null=True)
+    bmi1 = models.DecimalField(max_digits=5, decimal_places=2,null=True,blank=True)
+    history2 = models.CharField(max_length=300)
+    history_date2 = models.DateField(blank=True, null=True)
+    bmi2 = models.DecimalField(max_digits=5, decimal_places=2,null=True,blank=True)
+    history3 = models.CharField(max_length=300)
+    history_date3 = models.DateField(blank=True, null=True)
+    bmi3 = models.DecimalField(max_digits=5, decimal_places=2,null=True,blank=True)
+    history_count = models.IntegerField(default=0)
+    # dosage_date = models.DateField(blank=True,null=True,default = '1990-09-09')
+    # #dosage_date = models.CharField(max_length=50, default='June', null=True)
+    # phone_no = models.CharField(max_length=13, default='')
+    # loc=models.CharField(max_length=100,default='')
+    def __str__(self):
+        return self.histaadhar
