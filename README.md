@@ -8,18 +8,10 @@
 - Clone this project. Remember to create a django project to get your own secret key in settings.py file. Copy it to this settings.py as SECRET_KEY ='your-generated-secret-key'
 - Install required packages
 - Set up own database and add the credentials in settings.py
-- Run 
-''' 
-python manage.py makemigrations 
-'''
-- Run 
-''' 
-python manage.py migrate 
-'''
-- Run
-'''
-python manage.py runserver 
-'''
+- Run command python manage.py makemigrations 
+- Run command python manage.py migrate 
+- Run command python manage.py runserver
+
 #### Features
 
 - Health Worker Registration and Login
