@@ -28,5 +28,6 @@ urlpatterns = [
     path('registration/',include('registration.urls')),
     path('event/',include('event_calender.urls')),
     path('homeform/',include('homeform.urls')),
+    path('user/',include('user.urls')),
     path('',include('stats_graphs.urls'))
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

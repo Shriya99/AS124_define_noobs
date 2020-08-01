@@ -10,7 +10,9 @@
 - Set up own database and add the credentials in settings.py
 - Run command python manage.py makemigrations 
 - Run command python manage.py migrate 
+- Run command python manage.py createsuperuser
 - Run command python manage.py runserver
+
 
 #### Features
 

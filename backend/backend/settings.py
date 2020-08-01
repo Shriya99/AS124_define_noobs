@@ -21,13 +21,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0b48665f1294.ngrok.io','127.0.0.1']
+ALLOWED_HOSTS = []
 
-SECRET_KEY = 'y$uv9q4wm508w#52h@)@%o@rgbe6ov26as_p2se#ptrn8k3!r*'
+
 REDIS_HOST = 'localhost'
 
 LOGIN_URL='/'
@@ -47,6 +46,7 @@ INSTALLED_APPS = [
     'event_calender',
     'stats_graphs',
     'homeform',
+    'user',
     'rest_framework'
 ]
 
@@ -131,7 +131,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-#CORS_ORIGIN_ALLOW_ALL = False
+#CORS_ORIGIN_ALLOW_ALL = Flse
 #CORS_ORIGIN_WHITELIST = (
  #   'localhost:4200',
 #)
