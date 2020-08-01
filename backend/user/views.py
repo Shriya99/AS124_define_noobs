@@ -69,10 +69,10 @@ def get_data_with_biometric(request):
                 path = patient_data.imagepath
                 with open(path, "rb") as image_file:
                         encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
-                os.remove('facematch/' + imagename)
+                #os.remove('facematch/' + imagename)
                 return render(request, 'datauser.html',
                                   {'data': patient_data, 'dose': patient_dose, 'img': encoded_string})
-                os.remove('facematch/' + imagename)
+                #os.remove('facematch/' + imagename)
                 #return render(request, 'registration/dosage.html', {'matchedaadhar': matchedaadhar})
         except Exception as e:
             # trace_back = traceback.format_exc()

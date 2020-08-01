@@ -18,7 +18,7 @@ import datetime
 
 
 # Create your views here.
-
+@login_required
 def recent_events(request):
     try:
         dt = datetime.date.today()
@@ -29,6 +29,8 @@ def recent_events(request):
 #        trace_back = traceback.format_exc()
 #        message = str(e) + " " + str(trace_back)
         return render(request,"failure.html" ,{'message':str(e) ,'data':"Retry", 'link':'/event/recent/'})
+
+
 
 #def add_new_event(request):
 #    try:
