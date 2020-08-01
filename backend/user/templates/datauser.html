@@ -1,0 +1,225 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Patient's Data</title>
+</head>
+<body>
+<p>Aadhar No.: {{data.fullaadhar}}</p>
+<canvas id="can" height="400px" width="600px"></canvas>
+<p>First Name:{{data.first_name}}</p>
+<p>Middle Name:{{data.middle_name}}</p>
+<p>Last Name:{{data.last_name}}</p>
+<p>Date of Birth:{{data.dob}}</p>
+<p>Address:{{data.address}}</p>
+<p>Camp Location:{{data.camp_loc}}</p>
+<p>Phone No.:{{data.phone}}</p>
+<p>Dosage Details:{{dose.dosage_details}}</p>
+<p>Dosage Date:{{data.dosage_date}}</p>
+</body>
+<script>
+var canvas = document.getElementById('can');
+var ctx = canvas.getContext('2d');
+var image = new Image();
+image.onload = function() {
+  canvas.width=300;
+  canvas.height=300;
+  //ctx.drawImage(image, 0, 0);
+  ctx.drawImage(image,0,0,image.width,image.height,0,0,canvas.width,canvas.height);
+};
+image.src = "data:image/jpg;base64,{{img}}"
+</script>
+</html>-->
+
+{% load static %}
+{% static "images" as baseUrl %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Patient's Data</title>
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
+    <link rel="stylesheet" href="{% static 'assets/fonts/fontawesome-all.min.css'%}">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+
+<body id="page-top">
+	<div>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar" style="height: : 12%">
+        <div class="container">
+                    <a href="/" style="width: 5%;"><img class="flex-shrink-1 card-img-top" src="{% static 'assets/img/logo.png'%}" style="width: 95%;"></a>
+
+
+                    <a class="navbar-brand text-right text-black" id="main_title" href="/home" style="padding-left: 17px;">
+                        <strong>POSHAN SAATHI</strong>
+                    </a>
+
+                    <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navcol-1">
+                        <ul class="nav navbar-nav shadow-sm d-xl-flex ml-auto" data-toggle="tooltip" data-bs-tooltip="" data-placement="bottom" style="padding: 12px;">
+
+
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/event/recent" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">EVENTS</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/bmi" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">BMI CALCULATOR</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/calorie" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">CALORIE CALCULATOR</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/homeform/homereg" style="background-color: rgba(255,255,255,0.15); padding: 8px 12px;">HOME VISIT REGISTER</a>
+                            </li>
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/logout" style="background-color: rgba(255,255,255,0.15); padding: 8px 12px;">Log Out</a>
+                            </li>
+                        
+
+                        </ul>
+                    </div>
+                </div>
+    </nav>
+
+</div>
+<div style="margin-top: 8%;">
+<main class="page" >
+
+    <div id="wrapper" >
+        <div class="d-flex flex-column" id="content-wrapper">
+            <div id="content" >
+                <div class="container-fluid " >
+                    <div class="card mb-3" >
+                        <p class="lead text-center text-primary m-0 font-weight-bold" style="padding: 1%;">Aadhar Number:  {{data.fullaadhar}} </p>
+                    </div>
+                    <div class="row justify-content-center mb-3">
+                        <div class="col-sm-8 col-md-6 col-lg-3">
+                            <div class=" mb-3" >
+                                <div class=" text-center shadow" style="height: 200px;">
+                                	<canvas  id="can" height="320px" width="428px"></canvas>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-5">
+                            <div class="card shadow mb-3">
+                                <p class="lead text-monospace text-center text-primary m-0 font-weight-bold" style="background-color: #f9f9f9;">Personal Information</p>
+                                <div class="card-body">
+                                    <form>
+                                        <div class="form-row">
+                                            <div class="col">
+                                                <div class="form-group" style="margin-bottom: 0;"><label for="first_name" style="color: rgb(0,0,0);"><strong>First Name</strong></label></div>
+                                                <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{data.first_name}}</h6>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group" style="margin-bottom: 0;"><label for="first_name" style="color: rgb(0,0,0);font-size: 15px;"><strong>Middle Name</strong></label></div>
+                                                <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{data.middle_name}}</h6>
+                                            </div>
+                                            <div class="col">
+                                                <div class="form-group" style="margin-bottom: 0;"><label for="last_name" style="color: rgb(0,0,0);"><strong>Last Name</strong></label></div>
+                                                <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{data.last_name}}</h6>
+                                            </div>
+                                        </div>
+                                        <div class="form-row justify-content-center align-items-center">
+                                            <div class="col align-self-center">
+                                                <div class="form-group"><label style="color: rgb(0,0,0);"><strong>Date of Birth</strong></label>
+                                                    <h6 class="text-monospace  border rounded border-secondary" style="padding: 1%;">{{data.dob}}</h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="card shadow">
+                                        <p class="text-center text-primary m-0 font-weight-bold" style="margin: 2%;padding: 1%;background-color: #f9f9f9;">Contact Information</p>
+                                        <div class="card-body">
+                                            <form>
+                                                <div class="form-group" style="margin-bottom: 22px;"><label class="text-center" for="address" style="color: rgb(0,0,0);"><strong>Address</strong></label>
+                                                    <h6 class="text-monospace text-left border rounded border-secondary" style="font-size: 14px;height: 49px;"><br>{{data.address}}<br></h6>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="form-group"><label for="country"><strong>Phone Number</strong></label>
+                                                            <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{data.phone}}</h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col" style="margin-left: 29px;">
+                                                        <div class="form-group"><label for="country"><strong>Camp Location</strong></label>
+                                                            <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{data.camp_loc}}</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12" style="margin-top: 1%;">
+                                    <div class="card shadow">
+                                        <p class="text-center text-primary m-0 font-weight-bold" style="margin: 2%;padding: 1%;background-color: #f9f9f9;">Dosages Information</p>
+                                        <div class="card-body">
+                                            <div class="form-group" style="margin-bottom: 22px;"><label class="text-center" for="address" style="color: rgb(0,0,0);">Dosage Details<br></label>
+                                                <h6 class="text-left border rounded border-secondary" style="font-size: 14px;height: 49px;"><br>{{dose.dosage_details}}<br></h6>
+                                            </div>
+                                            <form>
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="form-group"><label for="country">Dosage Date<br></label>
+                                                            <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{dose.dosage_date}}<br></h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+    
+</div>
+<div class="text-center"><button class="btn btn-primary" type="button" onclick="print()">Print</button></div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
+    <script>
+        var canvas = document.getElementById('can');
+        var ctx = canvas.getContext('2d');
+        var image = new Image();
+        image.onload = function() {
+          canvas.width=267;
+          canvas.height=200;
+          //ctx.drawImage(image, 0, 0);
+          ctx.drawImage(image,0,0,image.width,image.height,0,0,canvas.width,canvas.height);
+        };
+        image.src = "data:image/jpg;base64,{{img}}"
+
+        const print=()=>{
+            window.print();
+        }
+        </script>
+</body>
+
+</html>

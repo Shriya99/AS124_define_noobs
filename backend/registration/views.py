@@ -36,6 +36,10 @@ def patient_create(request):
 			last_name = request.POST.get('last_name', '')
 			dob = request.POST.get('dob', '')
 			gender = request.POST.get('gender', '')
+			age=request.POST.get('age','')
+			height_feet = request.POST.get('height_feet','')
+			height_inches = request.POST.get('height_inches','')
+			weight = request.POST.get('weight','')
 			address = request.POST.get('address', '')
 			camp_loc=request.POST.get('camp_loc','')
 			aadhar1 = request.POST.get('aadhar1', '')
@@ -64,7 +68,7 @@ def patient_create(request):
 			resultstring = ocr('aadharimage'+fullaadhar+'.jpg',fullaadhar,request)
 			if resultstring=='Verified':
 				ver = "Verified"
-				register = Register(first_name=first_name,middle_name=middle_name,last_name=last_name,dob=dob,gender=gender,address=address,camp_loc=camp_loc,aadhar1=aadhar1,aadhar2=aadhar2,aadhar3=aadhar3,fullaadhar=fullaadhar,phone=phone,imagepath=imagepath,verstat=ver)
+				register = Register(first_name=first_name,middle_name=middle_name,last_name=last_name,dob=dob,age=age,height_feet=height_feet,height_inches=height_inches,weight=weight,gender=gender,address=address,camp_loc=camp_loc,aadhar1=aadhar1,aadhar2=aadhar2,aadhar3=aadhar3,fullaadhar=fullaadhar,phone=phone,imagepath=imagepath,verstat=ver)
 				register.save()
 			else:
 				ver ="Verification Pending"
