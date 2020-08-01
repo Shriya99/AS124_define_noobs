@@ -20,17 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'y$uv9q4wm508w#52h@)@%o@rgbe6ov26as_p2se#ptrn8k3!r*'
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['f8cdd22df4d1.ngrok.io','127.0.0.1']
-TWILIO_ACCOUNT_SID ='ACc692a5a73da6d2ee7ecca899085be4fb'
-TWILIO_AUTH_TOKEN ='219f5781c53c5dca905074262322ad07'
-
-# Application definition
-TWILIO_NUMBER = +12058272829
+ALLOWED_HOSTS = []
 
 
 REDIS_HOST = 'localhost'
