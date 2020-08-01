@@ -126,15 +126,19 @@
         bmiv=bmiv.toFixed(2);
         if( bmiv <19){
             document.getElementById('bmival').value="Your BMI value is : " + bmiv + ". You are Under Weight";
+            alert("☒ Advisory: You should have whole grain, breads, pulses, fruits, vegetables and dairy products");
         }
         else if(bmiv>=19 && bmiv <= 25){
             document.getElementById('bmival').value="Your BMI value is : " + bmiv + ". You are Normal Weight";
+            alert("✅ Advisory:  Your diet is perfect");
         }
         else if(bmiv>25 && bmiv <= 30){
             document.getElementById('bmival').value="Your BMI value is : " + bmiv + ". You are Over Weight";
+            alert("☒ Advisory: You should avoid fatty food and have more protein rich diet of fruits,vegetables and cereals");
         }
         else if(bmiv>30){
             document.getElementById('bmival').value="Your BMI value is : " + bmiv + ". You have Obesity";
+            alert("☒ Advisory: Strictly avoid fatty foods and decrease food intake and have more vegetables & fruits");
         }
     }
    
