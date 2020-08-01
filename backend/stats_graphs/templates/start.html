@@ -62,10 +62,7 @@
                             </li>
 
                             <li class="nav-item" role="presentation" style="padding-right: 5px;">
-                                <a class="nav-link border rounded border-secondary " href="/homeform/homereg" style="background-color: rgba(255,255,255,0.15); padding: 8px 12px;">HOME VISIT REGISTER</a>
-                            </li>
-                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
-                                <a class="nav-link border rounded border-secondary " href="/logout" style="background-color: rgba(255,255,255,0.15); padding: 8px 12px;">Log Out</a>
+                                <a class="nav-link border rounded border-secondary " href="/logout" style="background-color: rgba(255,255,255,0.15); padding: 8px 12px;">LOG OUT</a>
                             </li>
 
                         </ul>
@@ -147,7 +144,7 @@
     <div style="padding: 30px;">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-4" style="width: 250px;background-color: rgba(184,181,181,0.25);">
+                <div class="col-lg-3" style="width: 250px;background-color: rgba(184,181,181,0.25);">
                     <div class="text-capitalize border rounded shadow card" style="margin: 5%;"><a class="text-center" href="/registration/new-patient/"><img class="card-img-top" src="{% static 'assets/img/btn-new-patients.png'%}" style="padding: 20px;"></a>
                         <div class="text-center card-body" style="padding: 6px;">
                             <h5>New Patient Registration</h5>
@@ -156,9 +153,18 @@
                             <a href="/registration/new-patient/"><i class="fa fa-eye pr-1"></i>Register Now<br></a></small></div>
                     </div>
                 </div>
+                <div class="col-lg-3" style="width: 250px;background-color: rgba(184,181,181,0.25);">
+                    <div class="text-capitalize border rounded shadow card" style="margin: 5%;"><a class="text-center" href="/homeform/homereg"><img class="card-img-top" src="{% static 'assets/img/btn-new-patients.png'%}" style="padding: 20px;"></a>
+                        <div class="text-center card-body" style="padding: 6px;">
+                            <h5>New Patient Registration</h5>
+                        </div>
+                        <div class="card-footer text-center"><small>
+                            <a href="/homeform/homereg/"><i class="fa fa-eye pr-1"></i>Register Now<br></a></small></div>
+                    </div>
+                </div>
 
                 
-                <div class="col-lg-4" style="width: 250px;background-color: rgba(184,181,181,0.25);">
+                <div class="col-lg-3" style="width: 250px;background-color: rgba(184,181,181,0.25);">
                     <div class="text-capitalize border rounded shadow card" style="margin: 5%;"><a class="text-center" href="/registration/attendance/"><img class="card-img-top" src="{% static 'assets/img/82-824950_kicksite-attendance-tracking-icon-student-attendance-icon.png'%}" style="padding: 20px;"></a>
               <div class="text-center card-body" style="padding: 6px;">
                             <h5>Attendance/Dosage Update</h5>
@@ -166,10 +172,10 @@
                         <div class="card-footer text-center"><small><a href="/registration/attendance/"><i class="fa fa-eye pr-1"></i>Update Now<br></a></small></div>
                     </div>
                 </div>
-                <div class="col-lg-4" style="width: 250px;background-color: rgba(184,181,181,0.25);">
+                <div class="col-lg-3" style="width: 250px;background-color: rgba(184,181,181,0.25);">
                     <div class="text-capitalize border rounded shadow card" style="margin: 5%;"><a class="text-center" href="/registration/getdata/"><img class="card-img-top" src="{% static 'assets/img/download.png'%}" style="padding: 20px;"></a>
                         <div class="text-center card-body" style="padding: 6px;">
-                            <h5>Get Patient's Data<br></h5>
+                            <h5>Get Patient's Data<br><br></h5>
                         </div>
                         <div class="card-footer text-center"><small><a href="/registration/getdata/"><i class="fa fa-eye pr-1"></i>Get Data<br></a></small></div>
                     </div>
@@ -370,6 +376,7 @@
 
 
                 <p class="text-center" style="color:rgb(193,184,184);font-family:ABeeZee, sans-serif;margin-bottom:23px;">Poshan Abhiyaan@ 2020</p>
+                <p class="text-center" style="color:rgb(193,184,184);font-family:ABeeZee, sans-serif;margin-bottom:23px;">#define_noobs - AS124</p>
             </div>
         </div>
         <!-- End: Responsive footer -->
