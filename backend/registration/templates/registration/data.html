@@ -119,15 +119,15 @@ image.src = "data:image/jpg;base64,{{img}}"
                                     <form>
                                         <div class="form-row">
                                             <div class="col">
-                                                <div class="form-group" style="margin-bottom: 0;"><label for="first_name" style="color: rgb(0,0,0);"><strong>First Name</strong></label></div>
+                                                <div class="form-group" style="margin-bottom: 0;"><label style="color: rgb(0,0,0);"><strong>First Name</strong></label></div>
                                                 <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{data.first_name}}</h6>
                                             </div>
                                             <div class="col">
-                                                <div class="form-group" style="margin-bottom: 0;"><label for="first_name" style="color: rgb(0,0,0);font-size: 15px;"><strong>Middle Name</strong></label></div>
+                                                <div class="form-group" style="margin-bottom: 0;"><label style="color: rgb(0,0,0);font-size: 15px;"><strong>Middle Name</strong></label></div>
                                                 <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{data.middle_name}}</h6>
                                             </div>
                                             <div class="col">
-                                                <div class="form-group" style="margin-bottom: 0;"><label for="last_name" style="color: rgb(0,0,0);"><strong>Last Name</strong></label></div>
+                                                <div class="form-group" style="margin-bottom: 0;"><label style="color: rgb(0,0,0);"><strong>Last Name</strong></label></div>
                                                 <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{data.last_name}}</h6>
                                             </div>
                                         </div>
@@ -149,12 +149,12 @@ image.src = "data:image/jpg;base64,{{img}}"
                                         <p class="text-center text-primary m-0 font-weight-bold" style="margin: 2%;padding: 1%;background-color: #f9f9f9;">Contact Information</p>
                                         <div class="card-body">
                                             <form>
-                                                <div class="form-group" style="margin-bottom: 22px;"><label class="text-center" for="address" style="color: rgb(0,0,0);"><strong>Address</strong></label>
+                                                <div class="form-group" style="margin-bottom: 22px;"><label class="text-center"  style="color: rgb(0,0,0);"><strong>Address</strong></label>
                                                     <h6 class="text-monospace text-left border rounded border-secondary" style="font-size: 14px;height: 49px;"><br>{{data.address}}<br></h6>
                                                 </div>
                                                 <div class="form-row">
                                                     <div class="col">
-                                                        <div class="form-group"><label for="country"><strong>Phone Number</strong></label>
+                                                        <div class="form-group"><label><strong>Phone Number</strong></label>
                                                             <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{data.phone}}</h6>
                                                         </div>
                                                     </div>
@@ -172,14 +172,37 @@ image.src = "data:image/jpg;base64,{{img}}"
                                     <div class="card shadow">
                                         <p class="text-center text-primary m-0 font-weight-bold" style="margin: 2%;padding: 1%;background-color: #f9f9f9;">Dosages Information</p>
                                         <div class="card-body">
-                                            <div class="form-group" style="margin-bottom: 22px;"><label class="text-center" for="address" style="color: rgb(0,0,0);">Dosage Details<br></label>
-                                                <h6 class="text-left border rounded border-secondary" style="font-size: 14px;height: 49px;"><br>{{dose.dosage_details}}<br></h6>
+                                            <div class="form-group" style="margin-bottom: 22px;"><label class="text-center" for="address" style="color: rgb(0,0,0);">Dosage History<br></label>
+                                                <h6 class="text-left border rounded border-secondary" style="font-size: 14px;height: 49px;"><br>{{dose.history1}}<br></h6>
+                                            </div>
+                                            <div class="form-group" style="margin-bottom: 22px;"><label class="text-center" for="address" style="color: rgb(0,0,0);">Dosage History<br></label>
+                                                <h6 class="text-left border rounded border-secondary" style="font-size: 14px;height: 49px;"><br>{{dose.history2}}<br></h6>
+                                            </div>
+                                            <div class="form-group" style="margin-bottom: 22px;"><label class="text-center" for="address" style="color: rgb(0,0,0);">Dosage History<br></label>
+                                                <h6 class="text-left border rounded border-secondary" style="font-size: 14px;height: 49px;"><br>{{dose.history3}}<br></h6>
                                             </div>
                                             <form>
                                                 <div class="form-row">
                                                     <div class="col">
                                                         <div class="form-group"><label for="country">Dosage Date<br></label>
-                                                            <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{dose.dosage_date}}<br></h6>
+                                                            <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{dose.history_date1}}<br></h6>
+                                                        </div>
+                                                        <div class="form-group"><label for="country">Dosage Date<br></label>
+                                                            <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{dose.history_date2}}<br></h6>
+                                                        </div>
+                                                        <div class="form-group"><label for="country">Dosage Date<br></label>
+                                                            <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{dose.history_date3}}<br></h6>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col">
+                                                        <div class="form-group"><label for="country">BMI Progress<br></label>
+                                                            <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{dose.bmi1}}<br></h6>
+                                                        </div>
+                                                        <div class="form-group"><label for="country">Dosage Date<br></label>
+                                                            <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{dose.bmi2}}<br></h6>
+                                                        </div>
+                                                        <div class="form-group"><label for="country">Dosage Date<br></label>
+                                                            <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{dose.bmi3}}<br></h6>
                                                         </div>
                                                     </div>
                                                 </div>
