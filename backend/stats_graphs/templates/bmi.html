@@ -94,6 +94,11 @@
                     <label><strong>BMI Value</strong></label>
                     <input type="text" style="text-align: center;" disabled="disabled" name="" id="bmival" class="form-control">
                 </div>
+              
+               <div class="form-group text-center">
+                    <input type="text" style="text-align: center;" disabled="disabled" name="" id="Underweight" class="form-control">
+                </div>
+              
             </form>
         </div>
         <div class="card-footer text-center">A healthy BMI ranges between 19 and 25</div>
@@ -126,19 +131,19 @@
         bmiv=bmiv.toFixed(2);
         if( bmiv <19){
             document.getElementById('bmival').value="Your BMI value is : " + bmiv + ". You are Under Weight";
-            alert("☒ Advisory: You should have whole grain, breads, pulses, fruits, vegetables and dairy products");
+            document.getElementById("Underweight").value = "You should have whole grain,pulses,fruits,vegetables";
         }
         else if(bmiv>=19 && bmiv <= 25){
             document.getElementById('bmival').value="Your BMI value is : " + bmiv + ". You are Normal Weight";
-            alert("✅ Advisory:  Your diet is perfect");
+            document.getElementById("Underweight").value = "Your diet is perfect";
         }
         else if(bmiv>25 && bmiv <= 30){
             document.getElementById('bmival').value="Your BMI value is : " + bmiv + ". You are Over Weight";
-            alert("☒ Advisory: You should avoid fatty food and have more protein rich diet of fruits,vegetables and cereals");
+            document.getElementById("Underweight").value ="Avoid fatty food have more vegetables, pulses, fruits";
         }
         else if(bmiv>30){
             document.getElementById('bmival').value="Your BMI value is : " + bmiv + ". You have Obesity";
-            alert("☒ Advisory: Strictly avoid fatty foods and decrease food intake and have more vegetables & fruits");
+            document.getElementById("Underweight").value ="Strictly avoid fatty foods and decrease food intake";
         }
     }
    
