@@ -312,11 +312,12 @@ def get_patient_data(request):
 		if request.method=='POST':
 			inputaadhar = request.POST.get('inputaadhar','')
 			patient_data = Register.objects.get(fullaadhar=inputaadhar)
-			patient_dose = Dosage.objects.get(matchedaadhar=inputaadhar)
+			#patient_dose = Dosage.objects.get(matchedaadhar=inputaadhar)
+			dose_history = History.objects.get(histaadhar=inputaadhar)
 			path = patient_data.imagepath
 			with open(path, "rb") as image_file:
 				encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
-		return render(request, 'registration/data.html',{'data': patient_data,'dose': patient_dose,'img':encoded_string})
+		return render(request, 'registration/data.html',{'data': patient_data,'dose': dose_history,'img':encoded_string})
 	except Exception as e:
 		#trace_back = traceback.format_exc()
 		#message = str(e) + " " + str(trace_back)
