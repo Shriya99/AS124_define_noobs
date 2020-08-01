@@ -1,8 +1,8 @@
 from django.contrib import admin
 
 # Register your models here.
-from .models import Register,Dosage
+from .models import Register,Dosage,History
 
 admin.site.register(Register)
 admin.site.register(Dosage)
-# admin.site.register(Stat)
+admin.site.register(History)
