@@ -306,13 +306,15 @@ def whatsApp_portal(request):
 			msg = resp.message()
 			responded = False
 			if 'hi' in incoming_msg:
-				quote = 'Type 1 to know next dosage date...2 to know actual.... '
+				quote = 'Type 1 to know next dosage date...2 to know dosage details.... '
 				msg.body(quote)
 				responded = True
 			if '1' in incoming_msg:
-
-				quote = 'Your date is....'
+				quote = 'Type 1 to know next dosage date...2 to know actual..'
 				msg.body(quote)
+
+				#quote = 'Your date is....{{}}'
+					#msg.body(quote)
 				responded = True
 			if '2' in incoming_msg:
 			# return a cat pic

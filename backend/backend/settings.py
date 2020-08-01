@@ -25,9 +25,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0b48665f1294.ngrok.io','127.0.0.1']
 
-
+SECRET_KEY = 'y$uv9q4wm508w#52h@)@%o@rgbe6ov26as_p2se#ptrn8k3!r*'
 REDIS_HOST = 'localhost'
 
 LOGIN_URL='/'
