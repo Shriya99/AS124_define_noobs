@@ -161,7 +161,7 @@ def give_attendance(request):
 		except Exception as e:
 			#trace_back = traceback.format_exc()
 			#message = str(e) + " " + str(trace_back)
-			return render(request,"faliure.html" ,{'message':str(e) ,' data':"Try Again", 'link':'/registration/attendance/'})
+			return render(request,"failure.html" ,{'message':str(e) ,' data':"Try Again", 'link':'/registration/attendance/'})
 
 		# resized_img = cv2.resize(test_img, (1000, 1000))
 		# cv2.imshow("face dtecetion tutorial", resized_img)
