@@ -27,7 +27,6 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
-@login_required
 def get_data_with_biometric(request):
     if (request.method == 'POST'):
         attendbase64 = request.POST.get('imurlat', '')
@@ -79,7 +78,7 @@ def get_data_with_biometric(request):
             # trace_back = traceback.format_exc()
             # message = str(e) + " " + str(trace_back)
             return render(request, "failure.html",
-                          {'message': str(e), ' data': "Try Again", 'link': '/user/user-data/'})
+                          {'message': str(e), 'data': "Try Again", 'link': '/user/user-data/'})
 
     # resized_img = cv2.resize(test_img, (1000, 1000))
     # cv2.imshow("face dtecetion tutorial", resized_img)
