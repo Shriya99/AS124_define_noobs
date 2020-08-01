@@ -1,0 +1,182 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Calorie CALCULATOR</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css'%}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+
+
+<body>
+
+
+<!-- Start: Header Blue -->
+  <div>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar" style="height: : 12%">
+        <div class="container">
+                    <a href="/" style="width: 5%;"><img class="flex-shrink-1 card-img-top" src="{% static 'assets/img/logo.png'%}" style="width: 95%;"></a>
+
+
+                    <a class="navbar-brand text-right text-black" id="main_title" href="/home" style="padding-left: 17px;">
+                        <strong>POSHAN SAATHI</strong>
+                    </a>
+
+                    <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navcol-1">
+                        <ul class="nav navbar-nav shadow-sm d-xl-flex ml-auto" data-toggle="tooltip" data-bs-tooltip="" data-placement="bottom" style="padding: 12px;">
+
+
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/event/recent" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">EVENTS</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/bmiuser" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">BMI CALCULATOR</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="#" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">CALORIE CALCULATOR</a>
+                            </li>
+
+
+                        </ul>
+                    </div>
+            </div>
+    </nav>
+
+</div>
+
+    <!-- End: Header Blue -->
+
+
+<!--CALORIE FORM-->
+    <main class="page">
+    <section class="clean-block clean-form dark">
+    <div class="container">
+        <div class="card" >
+            <div class="heading text-center" style="margin-top: 140px; ">
+                        <h2 class="text-info">Calorie Calculator</h2>
+                        <p>Calculate your dailys Calorie intake for a healthy body. </p>
+                </div>
+
+            <div class="card-body">
+                <form class="m-auto " onsubmit="return false">
+
+                    <div class="form-group">
+                          <label>Age:</label>
+                          <input type="text" class="form-control" placeholder="Enter Your Age " id="age" required inputmode="numeric" pattern="[0-9]*">
+                    </div>
+
+                    <div class="form-group">
+                         <label>Gender:</label>
+                         <select id="Gender" class="form-control">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                         </select>
+                    </div><!--  /.field-small -->
+
+                    <div class="form-group  " style="margin-left: 1%;">
+                        <label>Height:</label>
+
+                        <div class="form-group row" style="margin-left: 5%; margin-right:  5%;">
+
+                            <div class="col offset-lg-0 text-center">
+                                <input type="number" class="form-control" placeholder="Feets"  id="height-ft" inputmode="numeric" pattern="[0-9]*" >
+                                <label for="height-ft">feet</label>
+                            </div><!--  /.field -->
+                            <div class="col offset-lg-1 text-center">
+                                 <input type="number" class="form-control" placeholder="Inches" id="height-in" inputmode="numeric" pattern="[0-9]*">
+                                <label for="height-in">inches</label>
+                            </div><!--  /.field -->
+                        </div>
+                    </div><!--  /.field-outer -->
+
+
+                    <div class="form-group">
+                        <label>Weight</label>
+                        <input type="number" name="" placeholder="Weight in kg" required id="weight"  class="form-control" inputmode="numeric" pattern="[0-9]*">
+                    </div>
+
+                    <div class="form-group FormField shift">
+                        <button class="btn btn-primary btn-block FormField__Button" type="submit" onclick="calorie()">Calculate</button>
+                    </div>
+
+
+                    <div class="form-group text-center">
+                        <label>Your basal metabolic rate (BMR) is:</label>
+                        <input type="text" style="text-align: center;" disabled="disabled" name="" id="results" class="form-control">
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer text-center">Stay Fit</div>
+        </div>
+    </div>
+    </section>
+    </main>
+
+<!--Calorie FORM-->
+
+
+
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="{% static 'assets/js/theme.js'%}"></script>
+    <script>
+
+
+        const errorMessage=(msg) =>{
+            document.getElementById('results').value=msg;
+        }
+
+        const calorie=() =>{
+
+                let age = document.getElementById('age').value;
+                if(isNaN(age) || age < 0) {
+                    return errorMessage('Please enter a valid age');
+                }
+                let heightFeet=document.getElementById('height-ft').value;
+                if(isNaN(heightFeet) || heightFeet < 0) {
+                    return errorMessage('Please enter a valid Height');
+                }
+                let gender=document.getElementById('Gender').value;
+                let heightInches=document.getElementById('height-in').value;
+
+                if(isNaN(heightInches) || heightInches < 0) {
+                    return errorMessage('Please enter a valid Height');
+                }
+                let heightCM = (2.54 * heightInches) + (30.4 * heightFeet)
+                let weight = document.getElementById('weight').value;
+                if(isNaN(weight) || weight < 0) {
+                    return errorMessage('Please enter a valid weight');
+                }
+
+
+           let calories = 0;
+           if(gender == 'Female') {
+             calories = 655.09 + (9.56 * weight) + (1.84 * heightCM) - (4.67 * age);
+            }
+            else {
+             calories = 66.47 + (13.75 * weight) + (5 * heightCM) - (6.75 * age);
+            }
+
+            document.getElementById('results').value=calories.toFixed(2)+" calories a day.";
+
+
+        }
+
+    </script>
+</body>
+</html>
