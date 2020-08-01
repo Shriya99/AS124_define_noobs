@@ -308,27 +308,76 @@ def whatsApp_portal(request):
 			incoming_msg = request.POST['Body'].lower()
 			resp = MessagingResponse()
 			msg = resp.message()
-			responded = False
-			if 'hi' in incoming_msg:
-				quote = 'Type 1 to know next dosage date...2 to know dosage details.... '
-				msg.body(quote)
-				responded = True
-			if '1' in incoming_msg:
-				quote = 'Type 1 to know next dosage date...2 to know actual..'
-				msg.body(quote)
 
+			responded = False
+			try:
+				#quote = "booo"
+				#msg.body(quote)
+				dos = Dosage.objects.get(matchedaadhar=incoming_msg)
+				quote = "Your next dosage date and details are..."
+				quote1 = str(dos.dosage_date)
+				quote2 = dos.dosage_details
+				quote3 = ": "
+				quote4 = " "
+				quote5 = "Dosage date"
+				quote6 = "Dosage details"
+				msg.body(quote+quote3+quote4+quote5+quote3+quote1+quote4+quote6+quote3+quote2)
+				#quote = dos.dosage_date
+				#msg.body(quote)
+				#quote = dos.dosage_details
+				#msg.body(quote)
+				responded = True
+			except Dosage.DoesNotExist:
+
+				if 'hi' in incoming_msg:
+					quote = 'Type 1 to get the list of upcoming events...Type your aadhar number to get dosage details.. '
+					msg.body(quote)
+					responded = True
+
+				if   incoming_msg == '1':
+
+				#quote = 'Your date is....'
+					upcoming = Event.objects.order_by('day')
+					dt = datetime.date.today()
+					responded = True
+		        #dates = Event.objects.order_by('day')
+					for up in upcoming:
+						if dt.strftime('%B') == up.day.strftime('%B'):
+							quote = str(up.day)
+							quote1 = up.notes
+							quote2 = str(up.start_time)
+							quote3 = str(up.end_time)
+							quote4 = " "
+							msg.body(quote1 +quote4+ quote+quote4+ quote2+quote4 + quote3 )
+						#msg.body(quote2)
+					#else:
+						#quote = "oopsss"
+						#msg.body(quote)
+				#quote = 'Enter your aadhar number'
+				#incoming_msg = request.POST['Body'].lower()
+				#msg.body(quote)
+				#if request.method == 'POST':
+				#	incoming_ms = request.POST['Body'].lower()
+				#	resp = MessagingResponse()
+				#	msg = resp.message()
+				#incoming_msg = request.POST['Body'].lower()
+				#	try:
+				#		dos = Dosage.objects.get(matchedaadhar=incoming_ms)
+				#		msg.body({{dos.dosage_date}})
+				#	except Dosage.DoesNotExist:
+				#		quote = 'Sorry..wrong aadhar..Type 1 to know dosage date...2 to know dosage details'
 				#quote = 'Your date is....{{}}'
-					#msg.body(quote)
-				responded = True
-			if '2' in incoming_msg:
+				#msg.body(quote)
+				#responded = True
+			#if '2' in incoming_msg:
 			# return a cat pic
-				quote = 'Pending....'
-				msg.body(quote)
+			#	quote = 'Pending....'
+			#	msg.body(quote)
 			#msg.media('https://cataas.com/cat')
-				responded = True
+			#	responded = True
 			if not responded:
 				msg.body('Type among the given options.....')
-			#return str(resp)
+			#retu##rn str(resp)
 			return HttpResponse(str(resp))
 		else:
 			return HttpResponse("No")
