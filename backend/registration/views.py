@@ -59,6 +59,7 @@ def patient_create(request):
 			#print("Aadhar base\n"+aadharbase64)
 			# files = request.FILES  # multivalued dict
 			imagepath = 'faces/faceimage'+fullaadhar+'.jpg'
+			lang_pref = request.POST.get('language', '')
 			# image = files.get("image")
 			# aadharimage = files.get("aadharimage")
 			# print(aadharimage)
@@ -74,7 +75,7 @@ def patient_create(request):
 			resultstring = ocr('aadharimage'+fullaadhar+'.jpg',fullaadhar,request)
 			if resultstring=='Verified':
 				ver = "Verified"
-				register = Register(first_name=first_name,middle_name=middle_name,last_name=last_name,dob=dob,height_cm=height,weight=weight,gender=gender,address=address,camp_loc=camp_loc,aadhar1=aadhar1,aadhar2=aadhar2,aadhar3=aadhar3,fullaadhar=fullaadhar,phone=phone,imagepath=imagepath,verstat=ver)
+				register = Register(first_name=first_name,middle_name=middle_name,last_name=last_name,dob=dob,height_cm=height,weight=weight,gender=gender,address=address,camp_loc=camp_loc,aadhar1=aadhar1,aadhar2=aadhar2,aadhar3=aadhar3,fullaadhar=fullaadhar,phone=phone,imagepath=imagepath,verstat=ver,lang_pref=lang_pref)
 				register.save()
 			else:
 				ver ="Verification Pending"
