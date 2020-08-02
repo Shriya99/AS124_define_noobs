@@ -22,7 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECURITY WARNING: don't run with debug turned on in production!
-
+SECRET_KEY = 'y$uv9q4wm508w#52h@)@%o@rgbe6ov26as_p2se#ptrn8k3!r*'
 
 DEBUG = True
 
@@ -93,7 +93,11 @@ DATABASES = {
     'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'medical',
+        'USER':'postgres',
+        'PASSWORD':'1234',
+        'HOST':'localhost'
     }
 }
 

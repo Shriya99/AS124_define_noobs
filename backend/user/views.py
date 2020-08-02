@@ -19,7 +19,7 @@ from rest_framework.decorators import api_view, parser_classes
 from rest_framework.response import Response
 from rest_framework.exceptions import ParseError
 from rest_framework.parsers import FileUploadParser
-from registration.models import Register,Dosage
+from registration.models import Register,Dosage,History
 from twilio.twiml.messaging_response import MessagingResponse
 from django.views.decorators.csrf import csrf_exempt
 from stats_graphs.models import Stats
@@ -65,7 +65,7 @@ def get_data_with_biometric(request):
                 # put_text(test_img, predicted_name, x, y)
                 matchedaadhar = Register.objects.get(fullaadhar__contains=str(label)).fullaadhar
                 patient_data = Register.objects.get(fullaadhar=matchedaadhar)
-                patient_dose = Dosage.objects.get(matchedaadhar=matchedaadhar)
+                patient_dose = History.objects.get(histaadhar=matchedaadhar)
                 path = patient_data.imagepath
                 with open(path, "rb") as image_file:
                         encoded_string = base64.b64encode(image_file.read()).decode('utf-8')

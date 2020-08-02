@@ -46,6 +46,7 @@ def patient_create(request):
 			aadhar2 = request.POST.get('aadhar2', '')
 			aadhar3 = request.POST.get('aadhar3', '')
 			phone = request.POST.get('phone', '')
+			
 			imagebase64 = request.POST.get('imurl2','')
 			imagebase64 += "=" * ((4 - len(imagebase64) % 4) % 4)
 			#print("Image base\n"+imagebase64)
@@ -79,7 +80,7 @@ def patient_create(request):
 				register.save()
 			else:
 				ver ="Verification Pending"
-				register = Register(first_name=first_name,middle_name=middle_name,last_name=last_name,dob=dob,gender=gender,height_cm=height,weight=weight,address=address,camp_loc=camp_loc,aadhar1=aadhar1,aadhar2=aadhar2,aadhar3=aadhar3,fullaadhar=fullaadhar,phone=phone,imagepath=imagepath,verstat=ver)
+				register = Register(first_name=first_name,middle_name=middle_name,last_name=last_name,dob=dob,gender=gender,height_cm=height,weight=weight,address=address,camp_loc=camp_loc,aadhar1=aadhar1,aadhar2=aadhar2,aadhar3=aadhar3,fullaadhar=fullaadhar,phone=phone,imagepath=imagepath,verstat=ver,lang_pref=lang_pref)
 				register.save()
 			dosage_details=""
 			visit_status=False
@@ -87,6 +88,9 @@ def patient_create(request):
 			#initial_bmi = round(initial_bmi,2)
 			dosage = Dosage(matchedaadhar=fullaadhar,Diagnosis=check,dosage_details=dosage_details,visit_status=visit_status,dosage_date=None,initial_bmi=initial_bmi,phone_no=phone,loc=camp_loc)
 			dosage.save()
+
+			history = History(histaadhar=fullaadhar,Diagnosis1=False,history1=dosage_details,history_date1=None,bmi1=None,Diagnosis2=False,history2=dosage_details,history_date2=None,bmi2=None,Diagnosis3=False,history3=dosage_details,history_date3=None,bmi3=None,history_count=0)
+			history.save()
 			# os.remove('faceimage' + fullaadhar + '.jpg')
 			os.remove('aadharimage'+fullaadhar+'.jpg')
 			# else:
