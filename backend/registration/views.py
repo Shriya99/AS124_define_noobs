@@ -82,8 +82,9 @@ def patient_create(request):
 				register.save()
 			dosage_details=""
 			visit_status=False
+			check=False
 			#initial_bmi = round(initial_bmi,2)
-			dosage = Dosage(matchedaadhar=fullaadhar,dosage_details=dosage_details,visit_status=visit_status,dosage_date=None,initial_bmi=initial_bmi,phone_no=phone,loc=camp_loc)
+			dosage = Dosage(matchedaadhar=fullaadhar,Diagnosis=check,dosage_details=dosage_details,visit_status=visit_status,dosage_date=None,initial_bmi=initial_bmi,phone_no=phone,loc=camp_loc)
 			dosage.save()
 			# os.remove('faceimage' + fullaadhar + '.jpg')
 			os.remove('aadharimage'+fullaadhar+'.jpg')
@@ -245,6 +246,11 @@ def dosage_updated(request):
 			dosage_details = request.POST.get('dosage_details', '')
 			dosage_date = request.POST.get('dosage_date', '')
 			matchedaadhar = request.POST.get('matchedaadhar', '')
+			check = request.POST.get('check')
+			if(check=='on'):
+				check="Clinical Checkup"
+			else:
+				check="Regular Checkup"
 			height = request.POST['height_cm']
 			weight = request.POST['weight']
 			height = "0"+height
@@ -275,24 +281,30 @@ def dosage_updated(request):
 			count=count+1
 			hist_obj.history_count = count
 			if count==1:
+				hist_obj.Diagnosis1=check
 				hist_obj.history1=dosage_details
 				hist_obj.history_date1=dosage_date
 				hist_obj.bmi1 = bmi_reg if bmi==0 else bmi
 			elif count==2:
+				hist_obj.Diagnosis2=check
 				hist_obj.history2 = dosage_details
 				hist_obj.history_date2 = dosage_date
 				hist_obj.bmi2 = hist_obj.bmi1 if bmi==0 else bmi
 			elif count==3:
+				hist_obj.Diagnosis3=check
 				hist_obj.history3 = dosage_details
 				hist_obj.history_date3 = dosage_date
 				hist_obj.bmi3 = hist_obj.bmi2 if bmi==0 else bmi
 			else:
+				hist_obj.Diagnosis1=hist_obj.Diagnosis2
 				hist_obj.history1 = hist_obj.history2
 				hist_obj.history_date1 = hist_obj.history_date2
 				hist_obj.bmi1 = hist_obj.bmi2
+				hist_obj.Diagnosis2=hist_obj.Diagnosis3
 				hist_obj.history2 = hist_obj.history3
 				hist_obj.history_date2 = hist_obj.history_date3
 				hist_obj.bmi2 = hist_obj.bmi3
+				hist_obj.Diagnosis3=check
 				hist_obj.history3 = dosage_details
 				hist_obj.history_date3 = dosage_date
 				hist_obj.bmi3 = hist_obj.bmi2 if bmi==0 else bmi

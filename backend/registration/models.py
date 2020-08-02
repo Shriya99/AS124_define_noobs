@@ -25,6 +25,7 @@ class Register(models.Model):
 
 class Dosage(models.Model):
     matchedaadhar = models.CharField(max_length=50,unique=True)
+    Diagnosis = models.BooleanField(default = False)
     dosage_details = models.CharField(max_length=300)
     visit_status = models.BooleanField(default = False)
     dosage_date = models.DateField(blank=True,null=True,default = '1990-09-09')
@@ -48,12 +49,15 @@ class Dosage(models.Model):
 
 class History(models.Model):
     histaadhar = models.CharField(max_length=50,unique=True)
+    Diagnosis1 = models.CharField(max_length=50)
     history1 = models.CharField(max_length=300)
     history_date1 = models.DateField(blank=True, null=True)
     bmi1 = models.DecimalField(max_digits=5, decimal_places=2,null=True,blank=True)
+    Diagnosis2 = models.CharField(max_length=50)
     history2 = models.CharField(max_length=300)
     history_date2 = models.DateField(blank=True, null=True)
     bmi2 = models.DecimalField(max_digits=5, decimal_places=2,null=True,blank=True)
+    Diagnosis3 = models.CharField(max_length=50)
     history3 = models.CharField(max_length=300)
     history_date3 = models.DateField(blank=True, null=True)
     bmi3 = models.DecimalField(max_digits=5, decimal_places=2,null=True,blank=True)
