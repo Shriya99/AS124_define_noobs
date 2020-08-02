@@ -9,6 +9,7 @@ urlpatterns=[
     path('bmiuser/',views.bmiuser,name="bmiuser"),
     path('home/', views.home,name='home'),
     path('faq/', views.faq,name='faq'),
+    path('chart/', views.chart,name='chart'),
     path("register/", views.register, name="register"),
     path("logout/", views.logout_request, name="logout"),
     path('login/', views.login_request, name="login"),
