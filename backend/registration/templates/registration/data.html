@@ -113,7 +113,7 @@ image.src = "data:image/jpg;base64,{{img}}"
                             </div>
                         </div>
                         <div class="col-12 col-sm-12 col-md-12 col-lg-5">
-                            <div class="card shadow mb-3">
+                            <div class="card  mb-3">
                                 <p class="lead text-monospace text-center text-primary m-0 font-weight-bold" style="background-color: #f9f9f9;">Personal Information</p>
                                 <div class="card-body">
                                     <form>
@@ -145,7 +145,7 @@ image.src = "data:image/jpg;base64,{{img}}"
                         <div class="col-lg-8">
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <div class="card shadow">
+                                    <div class="card ">
                                         <p class="text-center text-primary m-0 font-weight-bold" style="margin: 2%;padding: 1%;background-color: #f9f9f9;">Contact Information</p>
                                         <div class="card-body">
                                             <form>
@@ -169,44 +169,67 @@ image.src = "data:image/jpg;base64,{{img}}"
                                     </div>
                                 </div>
                                 <div class="col-lg-12" style="margin-top: 1%;">
-                                    <div class="card shadow">
+                                    <div class="card ">
                                         <p class="text-center text-primary m-0 font-weight-bold" style="margin: 2%;padding: 1%;background-color: #f9f9f9;">Dosages Information</p>
                                         <div class="card-body">
-                                            <div class="form-group" style="margin-bottom: 22px;"><label class="text-center" for="address" style="color: rgb(0,0,0);">Dosage History<br></label>
-                                                <h6 class="text-left border rounded border-secondary" style="font-size: 14px;height: 49px;"><br>{{dose.history1}}<br></h6>
+                                            {% if dose.bmi1 %}
+                                            <div class="form-group" style="margin-bottom: 22px;"><label class="text-center"  style="color: rgb(0,0,0);">Dosage History<br></label>
+                                                <h6 class="text-left border rounded border-secondary" style="font-size: 14px; margin-top:0%;"><br>{{dose.history1}}<br></h6>
                                             </div>
-                                            <div class="form-group" style="margin-bottom: 22px;"><label class="text-center" for="address" style="color: rgb(0,0,0);">Dosage History<br></label>
-                                                <h6 class="text-left border rounded border-secondary" style="font-size: 14px;height: 49px;"><br>{{dose.history2}}<br></h6>
-                                            </div>
-                                            <div class="form-group" style="margin-bottom: 22px;"><label class="text-center" for="address" style="color: rgb(0,0,0);">Dosage History<br></label>
-                                                <h6 class="text-left border rounded border-secondary" style="font-size: 14px;height: 49px;"><br>{{dose.history3}}<br></h6>
-                                            </div>
-                                            <form>
-                                                <div class="form-row">
-                                                    <div class="col">
-                                                        <div class="form-group"><label for="country">Dosage Date<br></label>
-                                                            <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{dose.history_date1}}<br></h6>
-                                                        </div>
-                                                        <div class="form-group"><label for="country">Dosage Date<br></label>
-                                                            <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{dose.history_date2}}<br></h6>
-                                                        </div>
-                                                        <div class="form-group"><label for="country">Dosage Date<br></label>
-                                                            <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{dose.history_date3}}<br></h6>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col">
-                                                        <div class="form-group"><label for="country">BMI Progress<br></label>
-                                                            <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{dose.bmi1}}<br></h6>
-                                                        </div>
-                                                        <div class="form-group"><label for="country">Dosage Date<br></label>
-                                                            <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{dose.bmi2}}<br></h6>
-                                                        </div>
-                                                        <div class="form-group"><label for="country">Dosage Date<br></label>
-                                                            <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{dose.bmi3}}<br></h6>
-                                                        </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="form-group"><label for="country">Dosage Date<br></label>
+                                                        <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{dose.history_date1}}<br></h6>
                                                     </div>
                                                 </div>
-                                            </form>
+                                                <div class="col">
+                                                    <div class="form-group"><label for="country">BMI Progress<br></label>
+                                                        <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{dose.bmi1}}<br></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr/>
+                                            {% endif %}
+                                            {% if dose.bmi2 %}
+                                            <div class="form-group" style="margin-bottom: 22px;"><label class="text-center"  style="color: rgb(0,0,0);">Dosage History<br></label>
+                                                <h6 class="text-left border rounded border-secondary" style="font-size: 14px;"><br>{{dose.history2}}<br></h6>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="form-group"><label for="country">Dosage Date<br></label>
+                                                        <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{dose.history_date2}}<br></h6>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group"><label for="country">Dosage Date<br></label>
+                                                        <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{dose.bmi2}}<br></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                            {% if dose.bmi3 %}
+                                            <hr/>
+                                            <div class="form-group" style="margin-bottom: 22px;"><label class="text-center"  style="color: rgb(0,0,0);">Dosage History<br></label>
+                                                <h6 class="text-left border rounded border-secondary" style="font-size: 14px;"><br>{{dose.history3}}<br></h6>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    
+                                                    <div class="form-group"><label for="country">Dosage Date<br></label>
+                                                        <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{dose.history_date3}}<br></h6>
+                                                    </div>
+                                                </div>
+                                                <div class="col">
+                                                    <div class="form-group"><label for="country">Dosage Date<br></label>
+                                                        <h6 class="text-monospace text-left border rounded border-secondary" style="padding: 1%;">{{dose.bmi3}}<br></h6>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            {% endif %}
+                                                
+                                                
+                                               
+                                            
                                         </div>
                                     </div>
                                 </div>

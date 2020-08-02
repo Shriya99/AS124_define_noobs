@@ -7,11 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css' %}">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'assets/css/styles.css'%}">
     <link rel="stylesheet" href="{% static 'assets/css/Header-Blue.css' %}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+    <script src="{% static 'assets/js/script1.min.js'%}"></script>
+    <link rel="stylesheet" href="{% static 'assets/css/styles.min.css' %}">
+</head>
 
     <title>New Patient Registration</title>
 
@@ -132,11 +136,19 @@
                                     <label for="camp_loc"><strong>Camp Location</strong></label>
                                     <input type="text" class="form-control" id="camp_loc" placeholder="Enter your address" required name="camp_loc" />
                                 </div>
+                                
 
                                     <label for="phone"><strong>Phone Number</strong></label>
                                 <div class="col offset-lg-0">
                                     <input type="text" maxlength="13" class="form-control form-control-user" id="phone" placeholder="Enter your Phone No." required name="phone"  />
                                 </div>
+
+                              <!--  <div class="form-group form-control">
+                                    
+                                    <input type="checkbox"  style="width: max-content;" data-toggle="toggle" data-on="Yes" data-off="No" data-onstyle="primary"  data-offstyle="default">
+                                    <label>  Clinical Checkup</label>
+                                </div>-->
+
                                     <label><br><strong>Aadhar Card Number</strong></label>
                                 <div class="form-group row">
                                     <div class="col offset-lg-0">
@@ -267,7 +279,7 @@ document.getElementById("snap1").addEventListener("click", function() {
 
 
 </script>
-     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
