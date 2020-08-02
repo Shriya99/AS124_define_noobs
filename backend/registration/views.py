@@ -337,6 +337,8 @@ def whatsApp_portal(request):
 			incoming_msg = request.POST['Body'].lower()
 			resp = MessagingResponse()
 			msg = resp.message()
+			msg1 = resp.message()
+			msg2 = resp.message()
 
 			responded = False
 			try:
@@ -354,10 +356,34 @@ def whatsApp_portal(request):
 				quote5 = translator.translate("Dosage date")
 				quote6 = translator.translate("Dosage details")
 				msg.body(translation+quote3+quote4+quote5+quote3+quote1+quote4+quote6+quote3+quote2)
+				dos = Dosage.objects.get(matchedaadhar=incoming_msg)
+				quote = "Your next dosage date and details are"
+				translator= Translator(to_lang="BN")
+				translation = translator.translate(quote)
+				quote1 = str(dos.dosage_date)
+				quotet2 = dos.dosage_details
+				quote2 = translator.translate(quotet2)
+				quote3 = ": "
+				quote4 = " "
+				quote5 = translator.translate("Dosage date")
+				quote6 = translator.translate("Dosage details")
+				msg1.body(translation+quote3+quote4+quote5+quote3+quote1+quote4+quote6+quote3+quote2)
+				dos = Dosage.objects.get(matchedaadhar=incoming_msg)
+				quote = "Your next dosage date and details are"
+				#translator= Translator(to_lang=lang)
+				#translation = translator.translate(quote)
+				quote1 = str(dos.dosage_date)
+				quote2 = dos.dosage_details
+				#quote2 = translator.translate(quotet2)
+				quote3 = ": "
+				quote4 = " "
+				quote5 = "Dosage date"
+				quote6 = "Dosage details"
 				#quote = dos.dosage_date
 				#msg.body(quote)
 				#quote = dos.dosage_details
 				#msg.body(quote)
+				msg2.body(quote+quote3+quote4+quote5+quote3+quote1+quote4+quote6+quote3+quote2)
 				responded = True
 			except Dosage.DoesNotExist:
 				#if incoming_msg == 'Hindi':
@@ -379,6 +405,14 @@ def whatsApp_portal(request):
 					translator= Translator(to_lang=lang)
 					translation = translator.translate(quote)
 					msg.body(translation)
+					quote = 'Type 1 to get the list of upcoming events Type your aadhar number to get dosage details '
+					translator= Translator(to_lang="BN")
+					translation = translator.translate(quote)
+					msg1.body(translation)
+					quote = 'Type 1 to get the list of upcoming events Type your aadhar number to get dosage details '
+					#translator= Translator(to_lang=lang)
+					#translation = translator.translate(quote)
+					msg2.body(quote)
 					responded = True
 
 				if   incoming_msg == '1':
@@ -400,6 +434,26 @@ def whatsApp_portal(request):
 							quote4 = " "
 							#quote8 = '/n'
 							msg.body(quote1 +quote4+ quote+quote4+ quote2+quote4 + quote3 )
+							translator= Translator(to_lang="BN")
+							quote = str(up.day)
+							quotet = up.notes
+							quote1 = translator.translate(quotet)
+							quotet2 = str(up.start_time)
+							quote2 = translator.translate(quotet2)
+							quote3 = str(up.end_time)
+							quote4 = " "
+							#quote8 = '/n'
+							msg1.body(quote1 +quote4+ quote+quote4+ quote2+quote4 + quote3 )
+							#translator= Translator(to_lang=lang)
+							quote = str(up.day)
+							quote1 = up.notes
+							#quote1 = translator.translate(quotet)
+							quote2 = str(up.start_time)
+							#quote2 = translator.translate(quotet2)
+							quote3 = str(up.end_time)
+							quote4 = " "
+							#quote8 = '/n'
+							msg2.body(quote1 +quote4+ quote+quote4+ quote2+quote4 + quote3 )
 						#msg.body(quote2)
 					#else:
 						#quote = "oopsss"
@@ -431,6 +485,14 @@ def whatsApp_portal(request):
 				translator= Translator(to_lang=lang)
 				translation = translator.translate(quote)
 				msg.body(translation)
+				quote = 'Wrong input. Type 1 for list of upcoming events and type your aadhar number to get dosage details'
+				translator= Translator(to_lang="BN")
+				translation = translator.translate(quote)
+				msg1.body(translation)
+				quote = 'Wrong input. Type 1 for list of upcoming events and type your aadhar number to get dosage details'
+				#translator= Translator(to_lang=lang)
+				#translation = translator.translate(quote)
+				msg.body(quote)
 			#retu##rn str(resp)
 			return HttpResponse(str(resp))
 		else:
