@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>Diet Chart</title>
+   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
+
+    <link rel="stylesheet" href="assets/css/Header-Blue.css">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <style>
+        .success{
+            border: 1px solid white;
+            background-color: white;
+            border-radius: 20px;
+        }
+        .flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  perspective: 1500px;
+}
+
+.flip-card-inner {
+  position: relative;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+   
+}
+.flip-card-back {
+ 
+  transform: rotateY(180deg);
+}
+       
+    </style>
+</head>
+
+
+<body class="bg-gradient-primary" style="background-color: white;">
+    <!-- Start: Header Blue -->
+    <div>
+        <!-- Start: Header -->
+        <div class="header-blue" style="padding: 0px;background-color: rgba(255,255,255,0.25);">
+            <!-- Start: Navigation Clean -->
+            <nav class="navbar navbar-light navbar-expand-lg navigation-clean fixed-top " style="background-color: rgba(0,0,0,0.9);">
+                <div class="container">
+                    <a href="index.html" style="width: 5%;"><img class="flex-shrink-1 card-img-top" src="assets/img/logo.png" style="width: 95%;"></a>
+
+
+                    <a class="navbar-brand text-right text-white" id="main_title" href="index.html" style="padding-left: 17px;">
+                        <strong>MHRD-POSHAN SAATHI</strong>
+                    </a>
+
+                    <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon " ></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navcol-1">
+                        <ul class="nav navbar-nav shadow-sm d-xl-flex ml-auto" data-toggle="tooltip" data-bs-tooltip="" data-placement="bottom" style="padding: 12px;">
+
+
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link border rounded border-secondary shadow" href="events.html" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">EVENTS</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link border rounded border-secondary shadow" href="bmi.html" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">BMI CALCULATOR</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link border rounded border-secondary shadow" href="calorie.html" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">CALORIE CALCULATOR</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link border rounded border-secondary shadow" href="homeregis.html" style="background-color: rgba(255,255,255,0.15); padding: 8px 12px;">HOME VISIT REGISTER</a>
+                            </li>
+                        
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End: Navigation Clean -->
+        </div>
+        <!-- End: Header -->
+    </div>
+  
+    <!-- End: Header Blue -->
+
+    <main class="page" >
+        <section class="clean-block clean-form dark">
+            <div class="container" >
+                <div class="block-heading">
+                 
+                </div>
+                <h1 style="text-align:center;font-weight: bold; color: 	#3b99e0 ;padding: 3%;">Diet - Chart</h1>
+                <div class="success">
+                    <div class="container">
+                        <div class="row" style="padding: 16px;">  
+                            <div class='col-sm-4'>
+                                <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="card text-white bg-info shadow">
+                                            <div class="card-body" style="background-color: primary;height: 350px;">
+                                                <div class="col-sm-12" style="background-size: cover;background-color: primary; padding-top: 2%;">
+                                                    Age 2-3 Years    
+                                                </div>
+                                                <div style="padding-top: 8%;">
+                                                    <img src="2.jpg" width="250" height="250">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <div class="card text-white bg-info shadow">
+                                            <div class="card-body" style="background-color: primary;height: 350px;">
+                                                <p class="col-sm-12">Age 2-3 Years</p>
+                                                <div style="background-color: white;overflow: hidden;height:260px;padding-top: 20%;; color: black;font-weight: bold; text-align: center;">
+                                                <br/>
+                                                Fruits and vegetables 4, Grains 3, Milk (and alternatives) 2, Meat (and alternatives) 1
+                                                <br/><br/><br/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+                            <div class='col-sm-4'>
+                                
+                                    <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <div class="card text-white bg-info shadow">
+                                                <div class="card-body" style="background-color: primary;height: 350px;">
+                                                    <div class="col-sm-12" style="background-size: cover;background-color: primary; padding-top: 2%;">
+                                                        Age 4-8 Years    
+                                                    </div>
+                                                    <div style="padding-top: 8%;">
+                                                        <img src="8.jpg" width="250" height="250">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <div class="card text-white bg-info shadow">
+                                                <div class="card-body" style="background-color: primary;height: 350px;">
+                                                    <p class="col-sm-12">Age 4-8 Years</p>
+                                                    <div style="background-color: white;overflow: hidden;height:260px;padding-top: 20%;; color: black;font-weight: bold; text-align: center;">
+                                                    <br/>
+                                                    Fruits and vegetables 5, Grains 4, Milk (and alternatives) 2, Meat (and alternatives) 1
+                                                    <br/><br/><br/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                        
+                            <div class='col-sm-4'>
+                                <div class="card text-white bg-info shadow">
+                                    <div class="card-body" style="background-color: primary; height: 350px;">
+                                        <p class="col-sm-12">Age 9-13 Years</p>
+               
+                                        <div style="background-color: white;overflow: hidden;height:260px;padding-top: 20%; color: black;font-weight: bold; text-align: center;">
+                                            <br/>
+                                             Fruits and vegetables 6, Grains 6, Milk (and alternatives) 3-4, Meat (and alternatives) 1-2
+                                            <br/><br/><br/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="row" style="padding: 16px;">
+                            <div class='col-sm-4'>
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <div class="card text-white bg-info shadow">
+                                                <div class="card-body" style="background-color: primary;height: 350px;">
+                                                    <div class="col-sm-12" style="background-size: cover;background-color: primary; padding-top: 2%;">
+                                                        Age 14-18 Years    
+                                                    </div>
+                                                    <div style="padding-top: 8%;">
+                                                        <img src="15.jpg" width="250" height="250">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <div class="card text-white bg-info shadow">
+                                                <div class="card-body" style="background-color: primary;height: 350px;">
+                                                    <p class="col-sm-12">Age 14-18 Years</p>
+                                                    <div style="background-color: white;height:260px;overflow: hidden; color: black;font-weight: bold; text-align: center;">
+                                            
+                                                    <br/>Male: <br/>
+                                                    Fruits and vegetables 8, Grains 7, Milk (and alternatives) 3-4, Meat (and alternatives) 3
+                                                    <br/><br/>Female:<br/>
+                                                    Fruits and vegetables 7, Grains 6, Milk (and alternatives) 3-4, Meat (and alternatives) 2<br/><br/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class='col-sm-4'>
+                                <div class="flip-card">
+                                    <div class="flip-card-inner">
+                                        <div class="flip-card-front">
+                                            <div class="card text-white bg-info shadow">
+                                                <div class="card-body" style="background-color: primary;height: 350px;">
+                                                    <div class="col-sm-12" style="background-size: cover;background-color: primary; padding-top: 2%;">
+                                                        Age 19-50 Years    
+                                                    </div>
+                                                    <div style="padding-top: 8%;">
+                                                        <img src="40.jpg" width="250" height="250">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flip-card-back">
+                                            <div class="card text-white bg-info shadow">
+                                                <div class="card-body" style="background-color: primary;height: 350px;">
+                                                    <p class="col-sm-12">Age 19-50 Years</p>
+                                                    <div style="background-color: white;height:260px;overflow: hidden; color: black;font-weight: bold; text-align: center;">
+                                            
+                                   <br/>Male: <br/>
+                                            Fruits and vegetables 8-10, Grains 8, Milk (and alternatives) 2, Meat (and alternatives) 3
+                                           <br/><br/>Female:<br/>
+                                           Fruits and vegetables 7-8, Grains 6-7, Milk (and alternatives) 2, Meat (and alternatives) 2<br/><br/>
+                                    
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                            <div class='col-sm-4'>
+                                <div class="card text-white bg-info shadow">
+                                    <div class="card-body" style="background-color: primary;height: 350px;">
+                                        <p class="col-sm-12">Age 51<sup>+</sup> Years</p>
+                                        <div style="background-color: white;height:260px;overflow: hidden; color: black;font-weight: bold; text-align: center;">
+                                            <br/>Male: <br/>
+                                            Fruits and vegetables 7, Grains 7, Milk (and alternatives) 3, Meat (and alternatives) 3
+                                           <br/><br/>Female:<br/>
+                                           Fruits and vegetables 7, Grains 6, Milk (and alternatives) 3, Meat (and alternatives) 3<br/><br/>
+                                    
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                           
+                    
+                    
+                </div>
+
+                   
