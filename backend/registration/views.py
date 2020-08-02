@@ -505,7 +505,7 @@ def whatsApp_portal(request):
 				quote = 'Wrong input. Type 1 for list of upcoming events and type your aadhar number to get dosage details'
 				#translator= Translator(to_lang=lang)
 				#translation = translator.translate(quote)
-				msg.body(quote)
+				msg2.body(quote)
 			#retu##rn str(resp)
 			return HttpResponse(str(resp))
 		else:
