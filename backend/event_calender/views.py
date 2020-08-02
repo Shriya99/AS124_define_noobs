@@ -18,7 +18,6 @@ import datetime
 
 
 # Create your views here.
-@login_required
 def recent_events(request):
     try:
         dt = datetime.date.today()
