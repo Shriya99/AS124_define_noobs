@@ -12,7 +12,7 @@
 - Run command python manage.py migrate 
 - Run command python manage.py createsuperuser
 - Run command python manage.py runserver
-
+###### Run command pip install translate to enable multilingual query portal
 
 #### Features
 

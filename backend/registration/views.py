@@ -26,6 +26,7 @@ from twilio.twiml.messaging_response import MessagingResponse
 from django.views.decorators.csrf import csrf_exempt
 from stats_graphs.models import Stats
 from django.contrib.auth.decorators import login_required
+from translate import Translator #for multilingual portal
 
 @login_required
 def patient_create(request):
@@ -330,6 +331,7 @@ def searchdata(request):
 
 @csrf_exempt
 def whatsApp_portal(request):
+	lang = "HI" # change to BN . Dont use translate if lang = EN
 	try:
 		if request.method == 'POST':
 			incoming_msg = request.POST['Body'].lower()
@@ -341,24 +343,42 @@ def whatsApp_portal(request):
 				#quote = "booo"
 				#msg.body(quote)
 				dos = Dosage.objects.get(matchedaadhar=incoming_msg)
-				quote = "Your next dosage date and details are..."
+				quote = "Your next dosage date and details are"
+				translator= Translator(to_lang=lang)
+				translation = translator.translate(quote)
 				quote1 = str(dos.dosage_date)
-				quote2 = dos.dosage_details
+				quotet2 = dos.dosage_details
+				quote2 = translator.translate(quotet2)
 				quote3 = ": "
 				quote4 = " "
-				quote5 = "Dosage date"
-				quote6 = "Dosage details"
-				msg.body(quote+quote3+quote4+quote5+quote3+quote1+quote4+quote6+quote3+quote2)
+				quote5 = translator.translate("Dosage date")
+				quote6 = translator.translate("Dosage details")
+				msg.body(translation+quote3+quote4+quote5+quote3+quote1+quote4+quote6+quote3+quote2)
 				#quote = dos.dosage_date
 				#msg.body(quote)
 				#quote = dos.dosage_details
 				#msg.body(quote)
 				responded = True
 			except Dosage.DoesNotExist:
+				#if incoming_msg == 'Hindi':
+				#	lang = "HI"
+				#	responded = True
+				#if incoming_msg == 'b':
+					#lang = "BN"
+					#quote = 'Your  language is bengali'
+					#translator= Translator(to_lang=lang)
+					#translation= translator.translate(quote)
+					#msg.body(translation)
+					#responded = True
+				#if incoming_msg == 'h':
+					#lang = "HI"
+					#responded = True
 
 				if 'hi' in incoming_msg:
-					quote = 'Type 1 to get the list of upcoming events...Type your aadhar number to get dosage details.. '
-					msg.body(quote)
+					quote = 'Type 1 to get the list of upcoming events Type your aadhar number to get dosage details '
+					translator= Translator(to_lang=lang)
+					translation = translator.translate(quote)
+					msg.body(translation)
 					responded = True
 
 				if   incoming_msg == '1':
@@ -370,11 +390,15 @@ def whatsApp_portal(request):
 		        #dates = Event.objects.order_by('day')
 					for up in upcoming:
 						if dt.strftime('%B') == up.day.strftime('%B'):
+							translator= Translator(to_lang=lang)
 							quote = str(up.day)
-							quote1 = up.notes
-							quote2 = str(up.start_time)
+							quotet = up.notes
+							quote1 = translator.translate(quotet)
+							quotet2 = str(up.start_time)
+							quote2 = translator.translate(quotet2)
 							quote3 = str(up.end_time)
 							quote4 = " "
+							#quote8 = '/n'
 							msg.body(quote1 +quote4+ quote+quote4+ quote2+quote4 + quote3 )
 						#msg.body(quote2)
 					#else:
@@ -403,7 +427,10 @@ def whatsApp_portal(request):
 			#msg.media('https://cataas.com/cat')
 			#	responded = True
 			if not responded:
-				msg.body('Wrong input. Type 1 for events and type your aadhar number for details.....')
+				quote = 'Wrong input. Type 1 for list of upcoming events and type your aadhar number to get dosage details'
+				translator= Translator(to_lang=lang)
+				translation = translator.translate(quote)
+				msg.body(translation)
 			#retu##rn str(resp)
 			return HttpResponse(str(resp))
 		else:
