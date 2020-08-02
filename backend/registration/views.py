@@ -26,6 +26,7 @@ from twilio.twiml.messaging_response import MessagingResponse
 from django.views.decorators.csrf import csrf_exempt
 from stats_graphs.models import Stats
 from django.contrib.auth.decorators import login_required
+from translate import Translator #for multilingual portal
 
 @login_required
 def patient_create(request):
@@ -58,6 +59,7 @@ def patient_create(request):
 			#print("Aadhar base\n"+aadharbase64)
 			# files = request.FILES  # multivalued dict
 			imagepath = 'faces/faceimage'+fullaadhar+'.jpg'
+			lang_pref = request.POST.get('language', '')
 			# image = files.get("image")
 			# aadharimage = files.get("aadharimage")
 			# print(aadharimage)
@@ -73,7 +75,7 @@ def patient_create(request):
 			resultstring = ocr('aadharimage'+fullaadhar+'.jpg',fullaadhar,request)
 			if resultstring=='Verified':
 				ver = "Verified"
-				register = Register(first_name=first_name,middle_name=middle_name,last_name=last_name,dob=dob,height_cm=height,weight=weight,gender=gender,address=address,camp_loc=camp_loc,aadhar1=aadhar1,aadhar2=aadhar2,aadhar3=aadhar3,fullaadhar=fullaadhar,phone=phone,imagepath=imagepath,verstat=ver)
+				register = Register(first_name=first_name,middle_name=middle_name,last_name=last_name,dob=dob,height_cm=height,weight=weight,gender=gender,address=address,camp_loc=camp_loc,aadhar1=aadhar1,aadhar2=aadhar2,aadhar3=aadhar3,fullaadhar=fullaadhar,phone=phone,imagepath=imagepath,verstat=ver,lang_pref=lang_pref)
 				register.save()
 			else:
 				ver ="Verification Pending"
@@ -81,8 +83,9 @@ def patient_create(request):
 				register.save()
 			dosage_details=""
 			visit_status=False
+			check=False
 			#initial_bmi = round(initial_bmi,2)
-			dosage = Dosage(matchedaadhar=fullaadhar,dosage_details=dosage_details,visit_status=visit_status,dosage_date=None,initial_bmi=initial_bmi,phone_no=phone,loc=camp_loc)
+			dosage = Dosage(matchedaadhar=fullaadhar,Diagnosis=check,dosage_details=dosage_details,visit_status=visit_status,dosage_date=None,initial_bmi=initial_bmi,phone_no=phone,loc=camp_loc)
 			dosage.save()
 			# os.remove('faceimage' + fullaadhar + '.jpg')
 			os.remove('aadharimage'+fullaadhar+'.jpg')
@@ -244,6 +247,11 @@ def dosage_updated(request):
 			dosage_details = request.POST.get('dosage_details', '')
 			dosage_date = request.POST.get('dosage_date', '')
 			matchedaadhar = request.POST.get('matchedaadhar', '')
+			check = request.POST.get('check')
+			if(check=='on'):
+				check="Clinical Checkup"
+			else:
+				check="Regular Checkup"
 			height = request.POST['height_cm']
 			weight = request.POST['weight']
 			height = "0"+height
@@ -274,24 +282,30 @@ def dosage_updated(request):
 			count=count+1
 			hist_obj.history_count = count
 			if count==1:
+				hist_obj.Diagnosis1=check
 				hist_obj.history1=dosage_details
 				hist_obj.history_date1=dosage_date
 				hist_obj.bmi1 = bmi_reg if bmi==0 else bmi
 			elif count==2:
+				hist_obj.Diagnosis2=check
 				hist_obj.history2 = dosage_details
 				hist_obj.history_date2 = dosage_date
 				hist_obj.bmi2 = hist_obj.bmi1 if bmi==0 else bmi
 			elif count==3:
+				hist_obj.Diagnosis3=check
 				hist_obj.history3 = dosage_details
 				hist_obj.history_date3 = dosage_date
 				hist_obj.bmi3 = hist_obj.bmi2 if bmi==0 else bmi
 			else:
+				hist_obj.Diagnosis1=hist_obj.Diagnosis2
 				hist_obj.history1 = hist_obj.history2
 				hist_obj.history_date1 = hist_obj.history_date2
 				hist_obj.bmi1 = hist_obj.bmi2
+				hist_obj.Diagnosis2=hist_obj.Diagnosis3
 				hist_obj.history2 = hist_obj.history3
 				hist_obj.history_date2 = hist_obj.history_date3
 				hist_obj.bmi2 = hist_obj.bmi3
+				hist_obj.Diagnosis3=check
 				hist_obj.history3 = dosage_details
 				hist_obj.history_date3 = dosage_date
 				hist_obj.bmi3 = hist_obj.bmi2 if bmi==0 else bmi
@@ -312,11 +326,12 @@ def get_patient_data(request):
 		if request.method=='POST':
 			inputaadhar = request.POST.get('inputaadhar','')
 			patient_data = Register.objects.get(fullaadhar=inputaadhar)
-			patient_dose = Dosage.objects.get(matchedaadhar=inputaadhar)
+			#patient_dose = Dosage.objects.get(matchedaadhar=inputaadhar)
+			dose_history = History.objects.get(histaadhar=inputaadhar)
 			path = patient_data.imagepath
 			with open(path, "rb") as image_file:
 				encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
-		return render(request, 'registration/data.html',{'data': patient_data,'dose': patient_dose,'img':encoded_string})
+		return render(request, 'registration/data.html',{'data': patient_data,'dose': dose_history,'img':encoded_string})
 	except Exception as e:
 		#trace_back = traceback.format_exc()
 		#message = str(e) + " " + str(trace_back)
@@ -329,35 +344,88 @@ def searchdata(request):
 
 @csrf_exempt
 def whatsApp_portal(request):
+	lang = "HI" # change to BN . Dont use translate if lang = EN
 	try:
 		if request.method == 'POST':
 			incoming_msg = request.POST['Body'].lower()
 			resp = MessagingResponse()
 			msg = resp.message()
+			msg1 = resp.message()
+			msg2 = resp.message()
 
 			responded = False
 			try:
 				#quote = "booo"
 				#msg.body(quote)
 				dos = Dosage.objects.get(matchedaadhar=incoming_msg)
-				quote = "Your next dosage date and details are..."
+				quote = "Your next dosage date and details are"
+				translator= Translator(to_lang=lang)
+				translation = translator.translate(quote)
+				quote1 = str(dos.dosage_date)
+				quotet2 = dos.dosage_details
+				quote2 = translator.translate(quotet2)
+				quote3 = ": "
+				quote4 = " "
+				quote5 = translator.translate("Dosage date")
+				quote6 = translator.translate("Dosage details")
+				msg.body(translation+quote3+quote4+quote5+quote3+quote1+quote4+quote6+quote3+quote2)
+				dos = Dosage.objects.get(matchedaadhar=incoming_msg)
+				quote = "Your next dosage date and details are"
+				translator= Translator(to_lang="BN")
+				translation = translator.translate(quote)
+				quote1 = str(dos.dosage_date)
+				quotet2 = dos.dosage_details
+				quote2 = translator.translate(quotet2)
+				quote3 = ": "
+				quote4 = " "
+				quote5 = translator.translate("Dosage date")
+				quote6 = translator.translate("Dosage details")
+				msg1.body(translation+quote3+quote4+quote5+quote3+quote1+quote4+quote6+quote3+quote2)
+				dos = Dosage.objects.get(matchedaadhar=incoming_msg)
+				quote = "Your next dosage date and details are"
+				#translator= Translator(to_lang=lang)
+				#translation = translator.translate(quote)
 				quote1 = str(dos.dosage_date)
 				quote2 = dos.dosage_details
+				#quote2 = translator.translate(quotet2)
 				quote3 = ": "
 				quote4 = " "
 				quote5 = "Dosage date"
 				quote6 = "Dosage details"
-				msg.body(quote+quote3+quote4+quote5+quote3+quote1+quote4+quote6+quote3+quote2)
 				#quote = dos.dosage_date
 				#msg.body(quote)
 				#quote = dos.dosage_details
 				#msg.body(quote)
+				msg2.body(quote+quote3+quote4+quote5+quote3+quote1+quote4+quote6+quote3+quote2)
 				responded = True
 			except Dosage.DoesNotExist:
+				#if incoming_msg == 'Hindi':
+				#	lang = "HI"
+				#	responded = True
+				#if incoming_msg == 'b':
+					#lang = "BN"
+					#quote = 'Your  language is bengali'
+					#translator= Translator(to_lang=lang)
+					#translation= translator.translate(quote)
+					#msg.body(translation)
+					#responded = True
+				#if incoming_msg == 'h':
+					#lang = "HI"
+					#responded = True
 
 				if 'hi' in incoming_msg:
-					quote = 'Type 1 to get the list of upcoming events...Type your aadhar number to get dosage details.. '
-					msg.body(quote)
+					quote = 'Type 1 to get the list of upcoming events Type your aadhar number to get dosage details '
+					translator= Translator(to_lang=lang)
+					translation = translator.translate(quote)
+					msg.body(translation)
+					quote = 'Type 1 to get the list of upcoming events Type your aadhar number to get dosage details '
+					translator= Translator(to_lang="BN")
+					translation = translator.translate(quote)
+					msg1.body(translation)
+					quote = 'Type 1 to get the list of upcoming events Type your aadhar number to get dosage details '
+					#translator= Translator(to_lang=lang)
+					#translation = translator.translate(quote)
+					msg2.body(quote)
 					responded = True
 
 				if   incoming_msg == '1':
@@ -369,12 +437,36 @@ def whatsApp_portal(request):
 		        #dates = Event.objects.order_by('day')
 					for up in upcoming:
 						if dt.strftime('%B') == up.day.strftime('%B'):
+							translator= Translator(to_lang=lang)
 							quote = str(up.day)
-							quote1 = up.notes
-							quote2 = str(up.start_time)
+							quotet = up.notes
+							quote1 = translator.translate(quotet)
+							quotet2 = str(up.start_time)
+							quote2 = translator.translate(quotet2)
 							quote3 = str(up.end_time)
 							quote4 = " "
+							#quote8 = '/n'
 							msg.body(quote1 +quote4+ quote+quote4+ quote2+quote4 + quote3 )
+							translator= Translator(to_lang="BN")
+							quote = str(up.day)
+							quotet = up.notes
+							quote1 = translator.translate(quotet)
+							quotet2 = str(up.start_time)
+							quote2 = translator.translate(quotet2)
+							quote3 = str(up.end_time)
+							quote4 = " "
+							#quote8 = '/n'
+							msg1.body(quote1 +quote4+ quote+quote4+ quote2+quote4 + quote3 )
+							#translator= Translator(to_lang=lang)
+							quote = str(up.day)
+							quote1 = up.notes
+							#quote1 = translator.translate(quotet)
+							quote2 = str(up.start_time)
+							#quote2 = translator.translate(quotet2)
+							quote3 = str(up.end_time)
+							quote4 = " "
+							#quote8 = '/n'
+							msg2.body(quote1 +quote4+ quote+quote4+ quote2+quote4 + quote3 )
 						#msg.body(quote2)
 					#else:
 						#quote = "oopsss"
@@ -402,7 +494,18 @@ def whatsApp_portal(request):
 			#msg.media('https://cataas.com/cat')
 			#	responded = True
 			if not responded:
-				msg.body('Wrong input. Type 1 for events and type your aadhar number for details.....')
+				quote = 'Wrong input. Type 1 for list of upcoming events and type your aadhar number to get dosage details'
+				translator= Translator(to_lang=lang)
+				translation = translator.translate(quote)
+				msg.body(translation)
+				quote = 'Wrong input. Type 1 for list of upcoming events and type your aadhar number to get dosage details'
+				translator= Translator(to_lang="BN")
+				translation = translator.translate(quote)
+				msg1.body(translation)
+				quote = 'Wrong input. Type 1 for list of upcoming events and type your aadhar number to get dosage details'
+				#translator= Translator(to_lang=lang)
+				#translation = translator.translate(quote)
+				msg.body(quote)
 			#retu##rn str(resp)
 			return HttpResponse(str(resp))
 		else:
