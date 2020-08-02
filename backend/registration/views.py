@@ -46,7 +46,7 @@ def patient_create(request):
 			aadhar2 = request.POST.get('aadhar2', '')
 			aadhar3 = request.POST.get('aadhar3', '')
 			phone = request.POST.get('phone', '')
-			
+
 			imagebase64 = request.POST.get('imurl2','')
 			imagebase64 += "=" * ((4 - len(imagebase64) % 4) % 4)
 			#print("Image base\n"+imagebase64)
@@ -419,43 +419,162 @@ def whatsApp_portal(request):
 							#quote8 = '/n'
 							msg.body(quote1 +quote4+ quote+quote4+ quote2+quote4 + quote3 )
 				elif incoming_msg[0] == '2' and lang == "EN":
-					if incoming_msg[0] == '2' and lang != "EN":
-						upcoming = Event.objects.order_by('day')
-						dt = datetime.date.today()
-						responded = True
+					#if incoming_msg[0] == '2' and lang != "EN":
+					upcoming = Event.objects.order_by('day')
+					dt = datetime.date.today()
+					responded = True
 			        #dates = Event.objects.order_by('day')
-						for up in upcoming:
-							if dt.strftime('%B') == up.day.strftime('%B'):
+					for up in upcoming:
+						if dt.strftime('%B') == up.day.strftime('%B'):
 								#translator= Translator(to_lang=lang)
-								quote = str(up.day)
-								quote1 = up.notes
+							quote = str(up.day)								#quote1 = up.notes
 								#quote1 = translator.translate(quotet)
-								quote2 = str(up.start_time)
+							quote1 = up.notes
+							quote2 = str(up.start_time)
 								#quote2 = translator.translate(quotet2)
-								quote3 = str(up.end_time)
-								quote4 = " "
+							quote3 = str(up.end_time)
+							quote4 = " "
 								#quote8 = '/n'
-								msg.body(quote1 +quote4+ quote+quote4+ quote2+quote4 + quote3 )
-				if incoming_msg[0] != '2' and incoming_msg[0] != '1' and lang != "EN":
+							msg.body(quote1 +quote4+ quote+quote4+ quote2+quote4 + quote3 )
+
+				if incoming_msg[0] == '3' and lang != "EN":
+					translator= Translator(to_lang=lang)
+					quotet1 = "Available dates for checkup "
+					quote1 = translator.translate(quotet1)
+					responded = True
+					#msg.body(quotet1)
+					try:
+						absentees_checkup = Event.objects.filter(notes="checkup for absentees")
+						msg.body(quote1)
+
+						for a in absentees_checkup:
+							quote2 = str(a.day)
+							msg.body(quote2)
+					except Event.DoesNotExist:
+						quotet3 = 'No dates available for checkup'
+						quote3 = translator.translate(quotet3)
+						msg.body(quote3)
+
+				elif incoming_msg[0] == '3' and lang == "EN":
+					#translator= Translator(to_lang=lang)
+					quote1 = "Available dates for checkup "
+					#quote1 = translator.translate(quotet1)
+					responded = True
+					#msg.body(quotet1)
+					try:
+						absentees_checkup = Event.objects.filter(notes="checkup for absentees")
+						msg.body(quote1)
+
+						for a in absentees_checkup:
+							quote2 = str(a.day)
+							msg.body(quote2)
+					except Event.DoesNotExist:
+						quote3 = 'No dates available for checkup'
+						#quote3 = translator.translate(quotet3)
+						msg.body(quote3)
+
+				if incoming_msg[0] != '2' and incoming_msg[0] != '1' and incoming_msg[0] != '3' and lang != "EN":
 					quote = 'Wrong input. Type 1 with your aadhar to get dosage details and 2 with your aadhar for events.'
 					translator= Translator(to_lang=lang)
 					translation = translator.translate(quote)
 					responded = True
 					msg.body(translation)
-				elif incoming_msg[0] != '2' and incoming_msg[0] != '1' and lang == "EN":
+				elif incoming_msg[0] != '2' and incoming_msg[0] != '1' and incoming_msg[0] != '3' and lang == "EN":
 					quote = 'Wrong input. Type 1 with your aadhar to get dosage details and 2 with your aadhar for events.'
 					translator= Translator(to_lang=lang)
 					responded = True
 					translation = translator.translate(quote)
 					msg.body(translation)
+
+
+
+
+
+
 
 
 			except Dosage.DoesNotExist:
-				quote = 'Enter aadhar number correctly.Type 1 with your aadhar(1<aadhar>) to get dosage details and 2 with your aadhar(2<aadhar>) for events. '
+				try:
+					inc = incoming_msg[10:]
+					dos = Dosage.objects.get(matchedaadhar=inc)
+					res = Register.objects.get(fullaadhar=inc)
+					search = Event.objects.filter(notes="checkup for absentees")
+					responded = True
+					#lang = "EN"
+					if res.lang_pref == 'Hindi':
+						lang = "HI"
+					if res.lang_pref == 'Bengali':
+						lang = "BN"
+					if res.lang_pref == 'English':
+						done = 0
+						#translator= Translator(to_lang=lang)
+						#fixed = ""
+						for d in search:
+							if str(d.day) == incoming_msg[0:10]:
+								#fixed = Event.objects.get(day=d.day)
+								done = 1
+								#break
+						#translator= Translator(to_lang=lang)
+							if done == 1:
+								dos.dosage_date = d.day
+								dos.save()
+								quote = 'Your checkup date has been set.'
+								quote2 = str(d.day)
+								quote3 = str(d.start_time)
+								quote4 = str(d.end_time)
+								quote5 = " "
+						#translator= Translator(to_lang=lang)
+								#translation = translator.translate(quote)
+								#msg.body(translation+quote2)
+								msg.body(quote+quote5+quote2+quote5+quote3+quote5+quote4)
+								break
+
+						if done == 0:
+							quote = 'This date is not available for checkup.'
+							#translation = translator.translate(quote)
+							msg.body(quote)
+					else:
+						done = 0
+						translator= Translator(to_lang=lang)
+						#fixed = ""
+						for d in search:
+							if str(d.day) == incoming_msg[0:10]:
+								#fixed = Event.objects.get(day=d.day)
+								done = 1
+								#break
+						#translator= Translator(to_lang=lang)
+							if done == 1:
+								dos.dosage_date = d.day
+								dos.save()
+								quote = 'Your checkup date has been set.'
+								quote2 = str(d.day)
+								quote3 = str(d.start_time)
+								quote4 = str(d.end_time)
+								quote5 = " "
+
+						#translator= Translator(to_lang=lang)
+								translation = translator.translate(quote)
+								#msg.body(translation+quote2)
+								msg.body(translation+quote5+quote2+quote5+quote3+quote5+quote4)
+								break
+
+						if done == 0:
+							quote = 'This date is not available for checkup.'
+							translation = translator.translate(quote)
+							msg.body(translation)
+
+
+
+				except Dosage.DoesNotExist:
+					responded = True
+					quote = " Type 1 with aadhar number to get dosage details, 2 with aadhar number to get event details, 3 with aadhar to get checkup dates and <date><aadhar number> to reschedule dosage date"
+					msg.body(quote)
+
+				#quote = 'Enter aadhar number correctly.Type 1 with your aadhar(1<aadhar>) to get dosage details and 2 with your aadhar(2<aadhar>) for events. '
 				#translator= Translator(to_lang=lang)
 				#translation = translator.translate(quote)
-				responded = True
-				msg.body(quote)
+				#responded = True
+				#msg.body(quote)
 
 
 
@@ -471,7 +590,15 @@ def whatsApp_portal(request):
 				translator= Translator(to_lang=lang)
 				translation = translator.translate(quote)
 				msg.body(translation)
-				
+				#quote = 'Wrong input. Type 1 for list of upcoming events and type your aadhar number to get dosage details'
+				#translator= Translator(to_lang="BN")
+				#translation = translator.translate(quote)
+				#msg1.body(translation)
+				#quote = 'Wrong input. Type 1 for list of upcoming events and type your aadhar number to get dosage details'
+				#translator= Translator(to_lang=lang)
+				#translation = translator.translate(quote)
+				#msg2.body(quote)
+			#retu##rn str(resp)
 			return HttpResponse(str(resp))
 		else:
 			return HttpResponse("No")

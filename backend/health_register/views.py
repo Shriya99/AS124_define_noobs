@@ -18,16 +18,16 @@ def newstaff(request):
                 login(request, user)
                 return redirect("main:home")
 
-                else:
-                    for msg in form.error_messages:
-                        print(form.error_messages[msg])
-
-                    return render(request = request,
-                                template_name = "userreg.html",
-                                context={"form":form})
             else:
-                print('NO')
-                return render(request,"failure.html" ,{'message':'Not-authorised Health User' ,'data':"Try Again", 'link':'/newreg/new_staff/'})
+                for msg in form.error_messages:
+                    print(form.error_messages[msg])
+
+                return render(request = request,
+                            template_name = "userreg.html",
+                            context={"form":form})
+        else:
+            print('NO')
+            return render(request,"failure.html" ,{'message':'Not-authorised Health User' ,'data':"Try Again", 'link':'/newreg/new_staff/'})
             
     else:
         form = NewUserForm
