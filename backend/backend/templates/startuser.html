@@ -86,10 +86,15 @@
                                 <a class="nav-link border rounded border-secondary " href="/calorieuser" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">CALORIE CALCULATOR</a>
                             </li>
                             <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/faq" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">FAQ</a>
+                            </li>
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
                                 <a class="nav-link border rounded border-secondary " href="/login" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">LOG IN</a>
                             </li>
                             <li class="nav-item" role="presentation" style="padding-right: 5px;">
-                                <div  class="nav-link border rounded border-secondary " id="google_translate_element" style="background-color: rgba(255,255,255,0.15);padding: 0px 12px;"></div>
+
+                                
+                                <div  class="nav-link border rounded border-secondary " id="google_translate_element" style="background-color: rgba(255,255,255,0.15);padding: 0px 5px;"></div>
                                 <script>
                                 function googleTranslateElementInit() {
                                     new google.translate.TranslateElement(
@@ -180,8 +185,15 @@
         <div class="container">
             <div class="row justify-content-center">
 
-                
-                <div class="col-lg-6" style="background-color: rgba(184,181,181,0.25);">
+                <div class="col-lg-3" style="background-color: rgba(184,181,181,0.25); ">
+                    <div class="text-capitalize border rounded shadow card" style="margin: 5%; width: '200px'; margin-top:15%;"><a class="text-center" href="/chart"><img class="card-img-top" src="{% static 'assets/img/diet.png'%}" style="padding: 20px; width='20%';"></a>
+                        <div class="text-center card-body" style="padding: 6px;">
+                            <h5>General Diet Chart<br><br></h5>
+                        </div>
+                        <div class="card-footer text-center"><small><a href="/chart"><i class="fa fa-eye pr-1"></i>Know More<br></a></small></div>
+                    </div>
+                </div>
+                <div class="col-lg-6" style="background-color: rgba(184,181,181,0.25);padding-bottom:2%;">
                     
                         <section class="clean-block clean-form dark">
                             <div class="container" >
@@ -202,8 +214,8 @@
                         </section>
                     
                 </div>
-                <div class="col-lg-4" style="background-color: rgba(184,181,181,0.25);">
-                    <div class="text-capitalize border rounded shadow card" style="margin: 5%; width: '200px';"><a class="text-center" href="/user/user-data/"><img class="card-img-top" src="{% static 'assets/img/download.png'%}" style="padding: 20px; width='20%';"></a>
+                <div class="col-lg-3" style="background-color: rgba(184,181,181,0.25);">
+                    <div class="text-capitalize border rounded shadow card" style="margin: 5%; width: '200px'; margin-top:15%;"><a class="text-center" href="/user/user-data/"><img class="card-img-top" src="{% static 'assets/img/download.png'%}" style="padding: 20px; width='20%';"></a>
                         <div class="text-center card-body" style="padding: 6px;">
                             <h5>Get Patient's Data<br><br></h5>
                         </div>
