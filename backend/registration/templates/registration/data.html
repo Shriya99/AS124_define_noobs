@@ -249,6 +249,16 @@ image.src = "data:image/jpg;base64,{{img}}"
                                                
                                             
                                         </div>
+                                        <div class="col-lg-6" style="margin-left: 25%;" >
+                                            <div class="card text-white shadow ">                        
+                                            
+                                              <canvas id="pie-chart" width=10></canvas>
+                                            
+                                           
+                                            
+                                        
+                                        </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -282,6 +292,49 @@ image.src = "data:image/jpg;base64,{{img}}"
             window.print();
         }
         </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+                          
+                            <script>
+                               
+                        
+                              var config = {
+                        
+                                  type: 'bar',
+                                data: {
+                                  datasets: [{
+                                    data: {{ cdata|safe }},
+                                    backgroundColor: [
+                                    'rgba(54, 162, 235, 0.6)',
+                                      'rgba(255, 99, 132, 0.8)',
+                                        
+                                        'rgba(255, 206, 86, 0.6)',
+                                    
+                                    ],
+                                    
+                                    label: "Cumilative BMI"
+                                  }],
+                                  labels: {{ label |safe }}
+                                },
+                                options: {
+                                    barValueSpacing: 20,
+                                    scales: {
+                                        yAxes: [{
+                                            ticks: {
+                                                min: 16,
+                                            }
+                                        }]
+                                    }
+                                }
+                                
+                              };
+                        
+                              window.onload = function() {
+                                var ctx = document.getElementById('pie-chart').getContext('2d');
+                                window.myPie = new Chart(ctx, config);
+                              };
+                        
+                            </script>
 </body>
 
 </html>

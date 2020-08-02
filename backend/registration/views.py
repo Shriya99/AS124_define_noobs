@@ -89,7 +89,7 @@ def patient_create(request):
 			dosage = Dosage(matchedaadhar=fullaadhar,Diagnosis=check,dosage_details=dosage_details,visit_status=visit_status,dosage_date=None,initial_bmi=initial_bmi,phone_no=phone,loc=camp_loc)
 			dosage.save()
 
-			history = History(histaadhar=fullaadhar,Diagnosis1=False,history1=dosage_details,history_date1=None,bmi1=None,Diagnosis2=False,history2=dosage_details,history_date2=None,bmi2=None,Diagnosis3=False,history3=dosage_details,history_date3=None,bmi3=None,history_count=0)
+			history = History(histaadhar=fullaadhar,Diagnosis1=False,history1=dosage_details,history_date1=None,bmi1=0,Diagnosis2=False,history2=dosage_details,history_date2=None,bmi2=0,Diagnosis3=False,history3=dosage_details,history_date3=None,bmi3=0,history_count=0)
 			history.save()
 			# os.remove('faceimage' + fullaadhar + '.jpg')
 			os.remove('aadharimage'+fullaadhar+'.jpg')
@@ -333,9 +333,15 @@ def get_patient_data(request):
 			#patient_dose = Dosage.objects.get(matchedaadhar=inputaadhar)
 			dose_history = History.objects.get(histaadhar=inputaadhar)
 			path = patient_data.imagepath
+			labels = []
+			labels=['visit 1','Visit 2','Visit 3']
+			bmchart=[]
+			bmchart.append(int(dose_history.bmi1))
+			bmchart.append(int(dose_history.bmi2))
+			bmchart.append(int(dose_history.bmi3))
 			with open(path, "rb") as image_file:
 				encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
-		return render(request, 'registration/data.html',{'data': patient_data,'dose': dose_history,'img':encoded_string})
+		return render(request, 'registration/data.html',{'data': patient_data,'dose': dose_history,'img':encoded_string,'label':labels, 'cdata':bmchart})
 	except Exception as e:
 		#trace_back = traceback.format_exc()
 		#message = str(e) + " " + str(trace_back)

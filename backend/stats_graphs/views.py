@@ -125,7 +125,7 @@ def home(request):
                     data.append(0)
                  # inserts average visit_count for that month
                 #data.append(1)
-
+            
             return render(request, 'start.html', {
                 'labels': labels,
                 'data': data,

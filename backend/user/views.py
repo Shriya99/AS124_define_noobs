@@ -8,6 +8,7 @@ from django.http import JsonResponse
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from datetime import datetime
+from django.utils.dateparse import parse_date
 import base64
 from random import seed
 from random import randint
@@ -67,11 +68,30 @@ def get_data_with_biometric(request):
                 patient_data = Register.objects.get(fullaadhar=matchedaadhar)
                 patient_dose = History.objects.get(histaadhar=matchedaadhar)
                 path = patient_data.imagepath
+
+
+                labels = []
+                #queryset = City.objects.order_by('-population')[:5]
+                
+                #d=1
+                #labels.append(patient_dose.history_date1)
+                #labels.append(patient_dose.history_date2)
+                #labels.append(patient_dose.history_date3)
+                labels=['visit 1','Visit 2','Visit 3']
+                #print(labels)
+                bmchart=[]
+                bmchart.append(int(patient_dose.bmi1))
+                bmchart.append(int(patient_dose.bmi2))
+                bmchart.append(int(patient_dose.bmi3))
+                #print(bmchart)
+                
+                
+
                 with open(path, "rb") as image_file:
                         encoded_string = base64.b64encode(image_file.read()).decode('utf-8')
                 #os.remove('facematch/' + imagename)
                 return render(request, 'datauser.html',
-                                  {'data': patient_data, 'dose': patient_dose, 'img': encoded_string})
+                                  {'data': patient_data, 'dose': patient_dose, 'img': encoded_string, 'label':labels, 'cdata':bmchart })
                 #os.remove('facematch/' + imagename)
                 #return render(request, 'registration/dosage.html', {'matchedaadhar': matchedaadhar})
         except Exception as e:
