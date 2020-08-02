@@ -21,6 +21,11 @@ from .forms import NewUserForm
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 
+
+def faq(request):
+    return render(request,'faq_final.html')
+def chart(request):
+    return render(request,'diet.html')
 @login_required
 def home(request):
     try:
