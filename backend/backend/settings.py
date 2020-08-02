@@ -22,11 +22,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 
 # SECURITY WARNING: don't run with debug turned on in production!
-
+SECRET_KEY = 'y$uv9q4wm508w#52h@)@%o@rgbe6ov26as_p2se#ptrn8k3!r*'
 
 DEBUG = True
 
 ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0b48665f1294.ngrok.io','127.0.0.1']
+TWILIO_ACCOUNT_SID ='ACc692a5a73da6d2ee7ecca899085be4fb'
+TWILIO_AUTH_TOKEN ='219f5781c53c5dca905074262322ad07'
+
+# Application definition
+TWILIO_NUMBER = +12058272829
 
 
 
@@ -50,7 +56,8 @@ INSTALLED_APPS = [
     'stats_graphs',
     'homeform',
     'user',
-    'rest_framework'
+    'rest_framework',
+    'health_register'
 ]
 
 MIDDLEWARE = [
@@ -93,7 +100,11 @@ DATABASES = {
     'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'medical',
+        'USER':'postgres',
+        'PASSWORD':'1234',
+        'HOST':'localhost'
     }
 }
 
