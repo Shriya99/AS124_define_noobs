@@ -19,6 +19,7 @@ class Register(models.Model):
     phone = models.CharField(max_length=13,default='')
     imagepath = models.CharField(max_length=100,default='')
     verstat = models.CharField(max_length=20,default='')
+    lang_pref = models.CharField(max_length=20,default='English')
 
     def __str__(self):
         return self.aadhar1+self.aadhar2+self.aadhar3
