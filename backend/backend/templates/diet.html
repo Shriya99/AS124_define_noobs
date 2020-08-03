@@ -1,3 +1,5 @@
+{% load static %}
+{% static "images" as baseUrl %}
 <!DOCTYPE html>
 <html>
 
@@ -9,53 +11,55 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <title>Diet Chart</title>
-   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css'%}>
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
 
-    <link rel="stylesheet" href="assets/css/Header-Blue.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="{% static 'assets/css/Header-Blue.css'%}">
+
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css'%}">
     <style>
-        .success{
-            border: 1px solid white;
-            background-color: white;
-            border-radius: 20px;
-        }
-        .flip-card {
-            background-color: transparent;
-            width: 100%;
-            height: 100%;
-            perspective: 1000px;
-        }
+    .success{
+        border: 1px solid white;
+        background-color: white;
+        border-radius: 20px;
+    }
+    .flip-card {
+        background-color: transparent;
+        width: 100%;
+        height: 100%;
+        perspective: 1000px;
+    }
 
 .flip-card-inner {
-  position: relative;
-  text-align: center;
-  transition: transform 1.5s;
-  transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+position: relative;
+text-align: center;
+transition: transform 0s;
+transform-style: preserve-3d;
+box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 .flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
+transform: rotateY(180deg);
 }
 
 .flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+position: absolute;
+width: 100%;
+height: 100%;
+-webkit-backface-visibility: hidden;
+backface-visibility: hidden;
 }
 
 
 .flip-card-back {
- 
-  transform: rotateY(180deg);
+
+transform: rotateY(180deg);
 }
-       
-    </style>
+   
+</style>
 </head>
+
 
 
 <body class="bg-gradient-primary" style="background-color: white;">
@@ -64,12 +68,12 @@
         <!-- Start: Header -->
         <div class="header-blue" style="padding: 0px;background-color: rgba(255,255,255,0.25);">
             <!-- Start: Navigation Clean -->
-            <nav class="navbar navbar-light navbar-expand-lg navigation-clean fixed-top " style="background-color: rgba(0,0,0,0.9);">
+            <nav class="navbar navbar-light navbar-expand-xl navigation-clean fixed-top " style="background-color: rgba(0,0,0,0.9);">
                 <div class="container">
-                    <a href="index.html" style="width: 5%;"><img class="flex-shrink-1 card-img-top" src="assets/img/logo.png" style="width: 95%;"></a>
+                    <a href="/" style="width: 4%;"><img class="flex-shrink-1 card-img-top" src="{%static 'assets/img/logo.png'%}" style="width: 95%;"></a>
 
 
-                    <a class="navbar-brand text-right text-white" id="main_title" href="index.html" style="padding-left: 17px;">
+                    <a class="navbar-brand text-right text-white" id="main_title" href="/" style="padding-left: 17px;">
                         <strong>POSHAN SAATHI</strong>
                     </a>
 
@@ -82,22 +86,39 @@
                         <ul class="nav navbar-nav shadow-sm d-xl-flex ml-auto" data-toggle="tooltip" data-bs-tooltip="" data-placement="bottom" style="padding: 12px;">
 
 
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link border rounded border-secondary shadow" href="events.html" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">EVENTS</a>
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/event/recent" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">EVENTS</a>
                             </li>
 
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link border rounded border-secondary shadow" href="bmi.html" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">BMI CALCULATOR</a>
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/bmiuser" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">BMI CALCULATOR</a>
                             </li>
 
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link border rounded border-secondary shadow" href="calorie.html" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">CALORIE CALCULATOR</a>
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/calorieuser" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">CALORIE CALCULATOR</a>
+                            </li>
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/faq" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">FAQ</a>
+                            </li>
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/login" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">LOG IN</a>
+                            </li>
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+
+                                
+                                <div  class="nav-link border rounded border-secondary " id="google_translate_element" style="background-color: rgba(255,255,255,0.15);padding: 0px 5px;"></div>
+                                <script>
+                                function googleTranslateElementInit() {
+                                    new google.translate.TranslateElement(
+                                    {pageLanguage: 'en'},
+                                    'google_translate_element'
+                                );
+                                }
+                                </script>
+                                <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                             </li>
 
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link border rounded border-secondary shadow" href="homeregis.html" style="background-color: rgba(255,255,255,0.15); padding: 8px 12px;">HOME VISIT REGISTER</a>
-                            </li>
-                        
+                                                    
 
                         </ul>
                     </div>
@@ -107,6 +128,7 @@
         </div>
         <!-- End: Header -->
     </div>
+  
     <!-- End: Header Blue -->
 
     <main class="page" >
@@ -127,37 +149,37 @@
                                                         Age 2-3 Years    
                                                     </div>
                                                     <div style="padding-top: 8%;">
-                                                        <img src="2.jpg" width="250" height="250">
-                                                    </div>
+                                                    <img src="{% static 'assets/img/2.jpg'%}" width="250" height="250">
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="flip-card-back">
-                                            <div class="card text-white bg-info shadow">
-                                                <div class="card-body" style="background-color: primary;height: 350px;">
-                                                    <p class="col-sm-12">Age 2-3 Years</p>
-                                                    <div style="background-color: white;overflow: hidden;height:260px;padding-top: 20%;; color: black;font-weight: bold; text-align: center;">
-                                                        <br/>
-                                                        Fruits and vegetables 4, Grains 3, Milk (and alternatives) 2, Meat (and alternatives) 1
-                                                        <br/><br/><br/>
-                                                    </div>
+                                    </div>
+                                    <div class="flip-card-back">
+                                        <div class="card text-white bg-info shadow">
+                                            <div class="card-body" style="background-color: primary;height: 350px;">
+                                                <p class="col-sm-12">Age 2-3 Years</p>
+                                                <div style="background-color: white;overflow: hidden;height:260px;padding-top: 20%;; color: black;font-weight: bold; text-align: center;">
+                                                    <br/>
+                                                    Fruits and vegetables 4, Grains 3, Milk (and alternatives) 2, Meat (and alternatives) 1
+                                                    <br/><br/><br/>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            <div class='col-sm-4'>    
-                                <div class="flip-card">
-                                    <div class="flip-card-inner">
-                                        <div class="flip-card-front">
-                                            <div class="card text-white bg-info shadow">
-                                                <div class="card-body" style="background-color: primary;height: 350px;">
-                                                    <div class="col-sm-12" style="background-size: cover;background-color: primary; padding-top: 2%;">
-                                                        Age 4-8 Years    
-                                                    </div>
-                                                    <div style="padding-top: 8%;">
-                                                        <img src="8.jpg" width="250" height="250">
+                        </div>
+                        <div class='col-sm-4'>    
+                            <div class="flip-card">
+                                <div class="flip-card-inner">
+                                    <div class="flip-card-front">
+                                        <div class="card text-white bg-info shadow">
+                                            <div class="card-body" style="background-color: primary;height: 350px;">
+                                                <div class="col-sm-12" style="background-size: cover;background-color: primary; padding-top: 2%;">
+                                                    Age 4-8 Years    
+                                                </div>
+                                                <div style="padding-top: 8%;">
+                                                        <img src="{% static 'assets/img/8.jpg'%}" width="250" height="250">
                                                     </div>
                                                 </div>
                                             </div>
@@ -177,6 +199,7 @@
                                     </div>
                                 </div>
                             </div>
+                        
                             <div class='col-sm-4'>
                                 <div class="flip-card">
                                     <div class="flip-card-inner">
@@ -187,7 +210,7 @@
                                                         Age 9-13 Years    
                                                     </div>
                                                     <div style="padding-top: 8%;">
-                                                        <img src="12.jpg" width="250" height="250">
+                                                        <img src="{% static 'assets/img/12.jpg'%}" width="250" height="250">
                                                     </div>
                                                 </div>
                                             </div>
@@ -210,6 +233,7 @@
                         </div>
                     </div>
                 </div>
+                        
                 <div class="success" style="height: 400px;">
                     <div class="container">           
                         <div class="row" style="padding: 16px;">
@@ -223,7 +247,7 @@
                                                         Age 14-18 Years    
                                                     </div>
                                                     <div style="padding-top: 8%;">
-                                                        <img src="15.jpg" width="250" height="250">
+                                                        <img src="{% static 'assets/img/15.jpg'%}" width="250" height="250">
                                                     </div>
                                                 </div>
                                             </div>
@@ -255,7 +279,7 @@
                                                         Age 19-50 Years    
                                                     </div>
                                                     <div style="padding-top: 8%;">
-                                                        <img src="40.jpg" width="250" height="250">
+                                                        <img src="{% static 'assets/img/40.jpg'%}" width="250" height="250">
                                                     </div>
                                                 </div>
                                             </div>
@@ -288,7 +312,7 @@
                                                 Age 51<sup>+</sup> Years    
                                             </div>
                                             <div style="padding-top: 8%;">
-                                                <img src="55.jpg" width="250" height="250">
+                                                <img src="{% static 'assets/img/55.jpg'%}" width="250" height="250">
                                             </div>
                                         </div>
                                     </div>
@@ -311,11 +335,17 @@
                 </div>
                 </div>
             </div>
-                            
+                           
+                    
                     
                 </div>
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
                 </div>
-            </div>
-            </div></section></main></body></html>
-
+                </div>
+                </div>
+                </section>
+                </main>
+                </body>
+                </html>
                    
