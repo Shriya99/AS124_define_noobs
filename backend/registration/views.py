@@ -22,10 +22,15 @@ from rest_framework.response import Response
 from rest_framework.exceptions import ParseError
 from rest_framework.parsers import FileUploadParser
 from .models import Register,Dosage,History
+from event_calender.models import *
 from twilio.twiml.messaging_response import MessagingResponse
 from django.views.decorators.csrf import csrf_exempt
 from stats_graphs.models import Stats
 from django.contrib.auth.decorators import login_required
+from django.utils.timezone import get_current_timezone
+from django.utils.dateparse import parse_date
+#import datetime
+#from translate import Translator
 from translate import Translator #for multilingual portal
 
 @login_required
