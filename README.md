@@ -20,13 +20,13 @@
 - New Patient Registration
 - Biometric Attendance
 - Dosage Update
-- Automatic SMS Reminder
+- Automatic SMS Reminder( in Bengali/Hindi/English as preferred by patient)
 - Printable Patient Data
 - Locationwise Statistics
 - Events Calendar
 - BMI and Calorie Calculator
 - Home Visit Register
-- Whatsapp Query Portal
+- Whatsapp Query Portal( interaction supported in Hindi/Bengali/English as preferred by user)
 
 #### Tech Stack Used
 
