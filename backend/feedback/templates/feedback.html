@@ -1,3 +1,5 @@
+{% load static %}
+{% static "images" as baseUrl %}
 <!DOCTYPE html>
 <html>
 
@@ -5,11 +7,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <title>Feedback</title>
-    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
-    <link rel="stylesheet" href="assets/css/smoothproducts.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css'%}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <style>
         .success{
             border: 1px solid white;
@@ -71,23 +75,8 @@
                             <li class="nav-item" role="presentation" style="padding-right: 5px;">
                                 <a class="nav-link border rounded border-secondary " href="/faq" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">FAQ</a>
                             </li>
-                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
-                                <a class="nav-link border rounded border-secondary " href="/login" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">LOG IN</a>
-                            </li>
-                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                            
 
-                                
-                                <div  class="nav-link border rounded border-secondary " id="google_translate_element" style="background-color: rgba(255,255,255,0.15);padding: 0px 5px;"></div>
-                                <script>
-                                function googleTranslateElementInit() {
-                                    new google.translate.TranslateElement(
-                                    {pageLanguage: 'en'},
-                                    'google_translate_element'
-                                );
-                                }
-                                </script>
-                                <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-                            </li>
                             
                         </ul>
                     </div>
@@ -106,27 +95,44 @@
                    
                 </div>
                 <div class="page1">
-            <div class="success">
+                <div class="success">
                 <div class="text-left" style="padding-bottom: 2%;">
                     
-                        <input type="radio" id="feedback" name="feedcom" value="feedback">
-                        <label for="feedback" style="color: black; font-size: 160%; font-weight: lighter;">Feedback</label><span></span>
-                    <input type="radio" id="complaint" name="feedcom" value="complaint">
-                    <label for="complaint" style="color: black; font-size: 160%; font-weight: lighter;" >Complaint</label><br>
+                    <form method='POST' action="/feedback/new/">
+                        {% csrf_token %}
+                    <div class="Formfield">
+                        <div class="form-group FormField">
+                            <div class="form-group form-control">
+                                    
+                                <input type="checkbox"  style="width: max-content;" data-toggle="toggle" data-on="Yes" data-off="No"  id="feed" name="feed" data-onstyle="primary"  data-offstyle="default">
+                                <label>  Feedback ?</label>
+                            </div>
+
+                        </div></div>
+
+                        <div class="Formfield">
+                            <div class="form-group FormField">     
+                    <div class="form-group form-control">
+                                    
+                        <input type="checkbox"  style="width: max-content;" data-toggle="toggle" data-on="Yes" data-off="No"  id="com" name="com" data-onstyle="primary"  data-offstyle="default">
+                        <label>  Complain ?</label>
+                    </div>
+                    </div>
+                    </div>
                     
-                </div>
-                <div class="Formfield">
+                    
+                    <div class="Formfield">
                     <div class="form-group FormField">
                         <label class="&quot;FormField__Label&quot;" htmlfor="&quot;first_name&quot;">Name: <br></label>
                         <input class="border rounded shadow form-control FormField__Input" type="text" id="name" style="height: 65px;" placeholder="Enter your Name" required="" name="name">
                     </div>
                     <div class="form-group FormField">
                         <label>Phone No:</label>
-                        <input class="border rounded shadow form-control FormField__Input" id="phone" type="text" style="height: 60px;" placeholder="Enter your Phone Number" required="" name="phone">
+                        <input class="border rounded shadow form-control FormField__Input" id="pno" type="text" style="height: 60px;" placeholder="Enter your Phone Number" required="" name="pno">
                     </div>
                     <div class="form-group FormField">
                         <label>Message:</label>
-                        <textarea class="border rounded shadow form-control FormField__Input" id="msg" rows="6"  required="" name="msg">Your Message...</textarea>
+                        <textarea class="border rounded shadow form-control FormField__Input" id="note" rows="6"  required="" name="note">Your Message...</textarea>
                     </div>
 
                        <br/>
@@ -140,11 +146,9 @@
             </div>
         </section>
     </main>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
-    <script src="assets/js/smoothproducts.min.js"></script>
-    <script src="assets/js/theme.js"></script>
+
 </body>
 
 </html>

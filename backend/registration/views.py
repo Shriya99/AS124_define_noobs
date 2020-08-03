@@ -9,7 +9,7 @@ import pytesseract
 from django.http import JsonResponse
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
-from datetime import datetime
+import datetime
 import base64
 from random import seed
 from random import randint
@@ -146,7 +146,7 @@ def give_attendance(request):
 		attendbase64 = request.POST.get('imurlat', '')
 		seed(1)
 		value = randint(0, 999999999999)
-		imagename = 'facetesting'+str(datetime.now().strftime('%Y_%m_%d_%H_%M_%S'))+str(value)+'.jpg'
+		imagename = 'facetesting'+str(datetime.datetime.now().strftime('%Y_%m_%d_%H_%M_%S'))+str(value)+'.jpg'
 		with open('./facematch/'+imagename, "wb") as fh:
 			fh.write(base64.b64decode(attendbase64))
 

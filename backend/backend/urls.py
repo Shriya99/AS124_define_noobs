@@ -28,6 +28,7 @@ urlpatterns = [
     path('registration/',include('registration.urls')),
     path('newreg/',include('health_register.urls')),
     path('event/',include('event_calender.urls')),
+    path('feedback/',include('feedback.urls')),
     path('homeform/',include('homeform.urls')),
     path('user/',include('user.urls')),
     path('',include('stats_graphs.urls'))
