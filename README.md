@@ -27,6 +27,10 @@
 - BMI and Calorie Calculator
 - Home Visit Register
 - Whatsapp Query Portal( interaction supported in Hindi/Bengali/English as preferred by user)
+- Offline Support
+- Yoga & Exercise Card
+- Email filter so that only health workes can access it
+- Feedback and complaints form 
 
 #### Tech Stack Used
 
