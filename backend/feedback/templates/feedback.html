@@ -43,7 +43,7 @@
         <div class="header-blue" style="padding: 0px;background-color: rgba(255,255,255,0.25);">
             
             <!-- Start: Navigation Clean -->
-            <nav class="navbar navbar-light navbar-expand-xl navigation-clean fixed-top " style="background-color: rgba(0,0,0,0.9);">
+            <nav class="navbar navbar-light navbar-expand-lg navigation-clean fixed-top " style="background-color: rgba(0,0,0,0.9);">
                 <div class="container">
                     <a href="/" style="width: 4%;"><img class="flex-shrink-1 card-img-top" src="{% static 'assets/img/logo.png'%}" style="width: 95%;"></a>
 
@@ -62,20 +62,16 @@
 
 
                             <li class="nav-item" role="presentation" style="padding-right: 5px;">
-                                <a class="nav-link border rounded border-secondary " href="/event/recent" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">EVENTS</a>
+                                <a class="nav-link border rounded border-secondary text-white " href="/event/recent" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">EVENTS</a>
                             </li>
 
                             <li class="nav-item" role="presentation" style="padding-right: 5px;">
-                                <a class="nav-link border rounded border-secondary " href="/bmiuser" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">BMI CALCULATOR</a>
+                                <a class="nav-link border rounded border-secondary text-white" href="/bmiuser" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">BMI CALCULATOR</a>
                             </li>
 
                             <li class="nav-item" role="presentation" style="padding-right: 5px;">
-                                <a class="nav-link border rounded border-secondary " href="/calorieuser" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">CALORIE CALCULATOR</a>
-                            </li>
-                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
-                                <a class="nav-link border rounded border-secondary " href="/faq" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">FAQ</a>
-                            </li>
-                            
+                                <a class="nav-link border rounded border-secondary text-white" href="/calorieuser" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">CALORIE CALCULATOR</a>
+                            </li>                           
 
                             
                         </ul>
@@ -124,15 +120,15 @@
                     <div class="Formfield">
                     <div class="form-group FormField">
                         <label class="&quot;FormField__Label&quot;" htmlfor="&quot;first_name&quot;">Name: <br></label>
-                        <input class="border rounded shadow form-control FormField__Input" type="text" id="name" style="height: 65px;" placeholder="Enter your Name" required="" name="name">
+                        <input class="border rounded  form-control " type="text" id="name" style="height: 65px;" placeholder="Enter your Name" required="" name="name">
                     </div>
                     <div class="form-group FormField">
                         <label>Phone No:</label>
-                        <input class="border rounded shadow form-control FormField__Input" id="pno" type="text" style="height: 60px;" placeholder="Enter your Phone Number" required="" name="pno">
+                        <input class="border rounded  form-control " id="pno" type="text" style="height: 60px;" placeholder="Enter your Phone Number" required="" name="pno">
                     </div>
                     <div class="form-group FormField">
                         <label>Message:</label>
-                        <textarea class="border rounded shadow form-control FormField__Input" id="note" rows="6"  required="" name="note">Your Message...</textarea>
+                        <textarea class="border rounded  form-control " id="note" rows="6"  required="" name="note" placeholder="Your Message..." ></textarea>
                     </div>
 
                        <br/>

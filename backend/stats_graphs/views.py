@@ -22,6 +22,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 
 
+def yoga(request):
+    return render(request,'yoga.html')
 def faq(request):
     return render(request,'faq_final.html')
 def chart(request):
