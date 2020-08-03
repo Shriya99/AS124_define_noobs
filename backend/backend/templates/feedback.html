@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,400i,700,700i,600,600i">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/smoothproducts.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+    <style>
+        .success{
+            border: 1px solid white;
+            background-color: white;
+            border-radius: 20px;
+            padding-top: 2%;
+            padding-right: 5%;
+            padding-left: 5%;
+            padding-bottom: 3%;
+            width: 75%;
+        }
+        .page1{
+            padding-left: 20%;
+        }
+        span{
+            padding-left: 3%;
+        }
+        </style>
+</head>
+
+<body class="bg-gradient-primary" style="background-color: white;">
+    
+    
+    <!-- Start: Header Blue -->
+    <div>
+        <!-- Start: Header -->
+        <div class="header-blue" style="padding: 0px;background-color: rgba(255,255,255,0.25);">
+            
+            <!-- Start: Navigation Clean -->
+            <nav class="navbar navbar-light navbar-expand-xl navigation-clean fixed-top " style="background-color: rgba(0,0,0,0.9);">
+                <div class="container">
+                    <a href="/" style="width: 4%;"><img class="flex-shrink-1 card-img-top" src="{% static 'assets/img/logo.png'%}" style="width: 95%;"></a>
+
+
+                    <a class="navbar-brand text-right text-white" id="main_title" href="/" style="padding-left: 17px;">
+                        <strong>POSHAN SAATHI</strong>
+                    </a>
+
+                    <button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="navbar-toggler-icon " ></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navcol-1">
+                        <ul class="nav navbar-nav shadow-sm d-xl-flex ml-auto" data-toggle="tooltip" data-bs-tooltip="" data-placement="bottom" style="padding: 12px;">
+
+
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/event/recent" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">EVENTS</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/bmiuser" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">BMI CALCULATOR</a>
+                            </li>
+
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/calorieuser" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">CALORIE CALCULATOR</a>
+                            </li>
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/faq" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">FAQ</a>
+                            </li>
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/login" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">LOG IN</a>
+                            </li>
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+
+                                
+                                <div  class="nav-link border rounded border-secondary " id="google_translate_element" style="background-color: rgba(255,255,255,0.15);padding: 0px 5px;"></div>
+                                <script>
+                                function googleTranslateElementInit() {
+                                    new google.translate.TranslateElement(
+                                    {pageLanguage: 'en'},
+                                    'google_translate_element'
+                                );
+                                }
+                                </script>
+                                <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+            <!-- End: Navigation Clean -->
+        </div>
+        <!-- End: Header -->
+    </div>
+
+    <main class="page">
+        <section class="clean-block clean-form dark" id="pagr1"   >
+            <div class="container" >
+                <div class="block-heading">
+                    <h2 style="padding-top: 3%; color:#3b99e0 ;">Feedback/Complaint Form</h2>
+                   
+                </div>
+                <div class="page1">
+            <div class="success">
+                <div class="text-left" style="padding-bottom: 2%;">
+                    
+                        <input type="radio" id="feedback" name="feedcom" value="feedback">
+                        <label for="feedback" style="color: black; font-size: 160%; font-weight: lighter;">Feedback</label><span></span>
+                    <input type="radio" id="complaint" name="feedcom" value="complaint">
+                    <label for="complaint" style="color: black; font-size: 160%; font-weight: lighter;" >Complaint</label><br>
+                    
+                </div>
+                <div class="Formfield">
+                    <div class="form-group FormField">
+                        <label class="&quot;FormField__Label&quot;" htmlfor="&quot;first_name&quot;">Name: <br></label>
+                        <input class="border rounded shadow form-control FormField__Input" type="text" id="name" style="height: 65px;" placeholder="Enter your Name" required="" name="name">
+                    </div>
+                    <div class="form-group FormField">
+                        <label>Phone No:</label>
+                        <input class="border rounded shadow form-control FormField__Input" id="phone" type="text" style="height: 60px;" placeholder="Enter your Phone Number" required="" name="phone">
+                    </div>
+                    <div class="form-group FormField">
+                        <label>Message:</label>
+                        <textarea class="border rounded shadow form-control FormField__Input" id="msg" rows="6"  required="" name="msg">Your Message...</textarea>
+                    </div>
+
+                       <br/>
+
+                    <div class="form-group FormField shift">
+                        <button class="btn btn-primary btn-block FormField__Button" type="submit">Submit</button>
+                    </div>
+                </form>
+                </div>
+            </div>
+            </div>
+        </section>
+    </main>
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.10.0/baguetteBox.min.js"></script>
+    <script src="assets/js/smoothproducts.min.js"></script>
+    <script src="assets/js/theme.js"></script>
+</body>
+
+</html>

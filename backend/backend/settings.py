@@ -20,12 +20,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-
+SECRET_KEY = 'y$uv9q4wm508w#52h@)@%o@rgbe6ov26as_p2se#ptrn8k3!r*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = True
-
+SECRET_KEY = ''
 ALLOWED_HOSTS = []
 
 
@@ -95,8 +95,20 @@ DATABASES = {
     'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        
+<<<<<<< HEAD
+         'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'medical',
+        'USER':'postgres',
+        'PASSWORD':'ishu',
+        'HOST':'localhost'
 
+       
+       
+        
+=======
+
+
+>>>>>>> cfd0f0341bf4e811f1f820babf28a1d3ffb7e278
     }
 }
 
