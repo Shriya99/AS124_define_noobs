@@ -9,20 +9,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
+    
     <title>Poshan Saathi</title>
-   <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css'%}>
+   
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
 
     <link rel="stylesheet" href="{% static 'assets/css/Header-Blue.css'%}">
     <link rel="stylesheet" href="{% static 'assets/css/best-carousel-slide.css' %}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="{% static 'assets/css/Responsive-footer.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
-    <link rel="stylesheet" href="{% static 'assets/css/styles.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'assets/stylewa.min.css'%}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    
+   
+
     <style>
         .success{
             border: 1px solid white;
@@ -180,6 +186,41 @@
                 </ol>
         </div>
     </section>
+
+   
+    <div class="blog-slider">
+        <div class="blog-slider__wrp swiper-wrapper">
+            <!-- Start: 1st Slide -->
+            <div class="blog-slider__item swiper-slide">
+                <div></div>
+                <div class="blog-slider__img"><img src="{% static 'assets/img/whatsapp.png'%}"></div>
+                <div class="text-center blog-slider__content">
+                    <!-- Start: Your Text --><div class="blog-slider__title"><b>To get all your Queries answered:</b></div>
+                    <!-- End: Your Text -->
+                    <!-- Start: Your Text --><div class="blog-slider__title">Contact Us : <a href="https://wa.me/14155238886">+14155238886</a> </div>
+                    <!-- End: Your Text --><a class="class=&quot;blog-slider__button " href="https://wa.me/14155238886">Open in whatsapp</a></div>
+            </div>
+            <!-- End: 1st Slide -->
+            <!-- Start: 2nd Slide -->
+            <div class="blog-slider__item swiper-slide">
+                <div></div>
+                <div class="blog-slider__img" style="background-color: rgba(0,0,0,0.1);"><img src="{% static 'assets/img/whatsapp-about-1.webp'%}"></div>
+                <div class="text-justify blog-slider__content" style="width: 439px;">
+                    <!-- Start: Your Text --><div class="blog-slider__text"><b>1. Type 1AADHARNUMBER to get dosage date and details.</b></div>
+                    <!-- End: Your Text -->
+                    <!-- Start: Your Text --><div class="blog-slider__text"><b>2. Type 2AADHARNUMBER to get list of upcoming events this month.</b></div>
+                    <!-- End: Your Text -->
+                    <!-- Start: Your Text --><div class="blog-slider__text"><b>3. Type 3AADHARNUMBER to check out the list of dates available for check up
+(date in yyyy-mm-dd format)(aadhar number) to reschedule your dosage date</b></div>
+                    <!-- End: Your Text --><a class="class=&quot;blog-slider__button" href="#">READ MORE</a></div>
+            </div>
+            <!-- End: 2nd Slide -->
+            <div class="blog-slider__pagination"></div>
+        </div>
+    </div>
+
+
+
 
     <div style="padding: 30px;">
         <div class="container">
@@ -384,6 +425,7 @@
     </div>
     <!-- End: Responsive footer -->
 </div>
+<script src="{% static 'assets/script.min.js'%}"></script>
 </body>
 </html>
 

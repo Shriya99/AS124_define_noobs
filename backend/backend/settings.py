@@ -31,6 +31,7 @@ DEBUG = True
 
 
 
+
 REDIS_HOST = 'localhost'
 
 LOGIN_URL='/'
@@ -51,7 +52,8 @@ INSTALLED_APPS = [
     'stats_graphs',
     'homeform',
     'user',
-    'rest_framework'
+    'rest_framework',
+    'health_register'
 ]
 
 MIDDLEWARE = [
@@ -94,7 +96,6 @@ DATABASES = {
     'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-
 
 
     }

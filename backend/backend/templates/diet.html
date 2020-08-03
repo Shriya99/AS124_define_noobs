@@ -1,4 +1,7 @@
+{% load static %}
+{% static "images" as baseUrl %}
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -9,12 +12,14 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <title>Diet Chart</title>
-   <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+   <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css'%}">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
 
-    <link rel="stylesheet" href="assets/css/Header-Blue.css">
-    <link rel="stylesheet" href="assets/css/styles.css">
+    <link rel="stylesheet" href="{% static 'assets/css/Header-Blue.css'%}">
+    <link rel="stylesheet" href="{% static 'assets/css/styles.css'%}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <style>
         .success{
             border: 1px solid white;
@@ -66,10 +71,10 @@
             <!-- Start: Navigation Clean -->
             <nav class="navbar navbar-light navbar-expand-lg navigation-clean fixed-top " style="background-color: rgba(0,0,0,0.9);">
                 <div class="container">
-                    <a href="index.html" style="width: 5%;"><img class="flex-shrink-1 card-img-top" src="assets/img/logo.png" style="width: 95%;"></a>
+                    <a href="/" style="width: 4%;"><img class="flex-shrink-1 card-img-top" src="{% static 'assets/img/logo.png'%}" style="width: 95%;"></a>
 
 
-                    <a class="navbar-brand text-right text-white" id="main_title" href="index.html" style="padding-left: 17px;">
+                    <a class="navbar-brand text-right text-white" id="main_title" href="/" style="padding-left: 17px;">
                         <strong>POSHAN SAATHI</strong>
                     </a>
 
@@ -82,21 +87,24 @@
                         <ul class="nav navbar-nav shadow-sm d-xl-flex ml-auto" data-toggle="tooltip" data-bs-tooltip="" data-placement="bottom" style="padding: 12px;">
 
 
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link border rounded border-secondary shadow" href="events.html" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">EVENTS</a>
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/event/recent" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">EVENTS</a>
                             </li>
 
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link border rounded border-secondary shadow" href="bmi.html" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">BMI CALCULATOR</a>
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/bmiuser" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">BMI CALCULATOR</a>
                             </li>
 
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link border rounded border-secondary shadow" href="calorie.html" style="background-color: rgba(255,255,255,0.15);padding: 8px 12px;">CALORIE CALCULATOR</a>
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/calorieuser" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">CALORIE CALCULATOR</a>
                             </li>
-
-                            <li class="nav-item" role="presentation">
-                                <a class="nav-link border rounded border-secondary shadow" href="homeregis.html" style="background-color: rgba(255,255,255,0.15); padding: 8px 12px;">HOME VISIT REGISTER</a>
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/faq" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">FAQ</a>
                             </li>
+                            <li class="nav-item" role="presentation" style="padding-right: 5px;">
+                                <a class="nav-link border rounded border-secondary " href="/login" style="background-color: rgba(255,255,255,0.15);padding: 10px 12px;">LOG IN</a>
+                            </li>
+                            
                         
 
                         </ul>
@@ -110,7 +118,9 @@
     <!-- End: Header Blue -->
 
     <main class="page" >
-        <section class="clean-block clean-form dark" style="height: auto;">
+
+
+        <section class="clean-block clean-form dark" style="height: auto; ">
             <div class="container" >
                 <div class="block-heading"> </div>
                 <h1 style="text-align:center;font-weight: bold; color: 	#3b99e0 ;padding: 3%;">Diet - Chart</h1>
@@ -127,7 +137,7 @@
                                                         Age 2-3 Years    
                                                     </div>
                                                     <div style="padding-top: 8%;">
-                                                        <img src="2.jpg" width="250" height="250">
+                                                        <img src="{% static 'assets/img/2.jpg'%}" width="250" height="250">
                                                     </div>
                                                 </div>
                                             </div>
@@ -157,7 +167,7 @@
                                                         Age 4-8 Years    
                                                     </div>
                                                     <div style="padding-top: 8%;">
-                                                        <img src="8.jpg" width="250" height="250">
+                                                        <img src="{% static 'assets/img/8.jpg'%}" width="250" height="250">
                                                     </div>
                                                 </div>
                                             </div>
@@ -187,7 +197,7 @@
                                                         Age 9-13 Years    
                                                     </div>
                                                     <div style="padding-top: 8%;">
-                                                        <img src="12.jpg" width="250" height="250">
+                                                        <img src="{% static 'assets/img/12.jpg'%}" width="250" height="250">
                                                     </div>
                                                 </div>
                                             </div>
@@ -223,7 +233,7 @@
                                                         Age 14-18 Years    
                                                     </div>
                                                     <div style="padding-top: 8%;">
-                                                        <img src="15.jpg" width="250" height="250">
+                                                        <img src="{% static 'assets/img/15.jpg'%}" width="250" height="250">
                                                     </div>
                                                 </div>
                                             </div>
@@ -255,7 +265,7 @@
                                                         Age 19-50 Years    
                                                     </div>
                                                     <div style="padding-top: 8%;">
-                                                        <img src="40.jpg" width="250" height="250">
+                                                        <img src="{% static 'assets/img/40.jpg'%}" width="250" height="250">
                                                     </div>
                                                 </div>
                                             </div>
@@ -288,7 +298,7 @@
                                                 Age 51<sup>+</sup> Years    
                                             </div>
                                             <div style="padding-top: 8%;">
-                                                <img src="55.jpg" width="250" height="250">
+                                                <img src="{% static 'assets/img/56.jpg'%}" width="250" height="250">
                                             </div>
                                         </div>
                                     </div>
