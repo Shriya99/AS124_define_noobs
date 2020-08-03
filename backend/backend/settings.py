@@ -26,8 +26,9 @@ SECRET_KEY = 'y$uv9q4wm508w#52h@)@%o@rgbe6ov26as_p2se#ptrn8k3!r*'
 
 
 DEBUG = True
-
+SECRET_KEY = ''
 ALLOWED_HOSTS = []
+
 
 
 
@@ -51,7 +52,8 @@ INSTALLED_APPS = [
     'stats_graphs',
     'homeform',
     'user',
-    'rest_framework'
+    'rest_framework',
+    'health_register'
 ]
 
 MIDDLEWARE = [
@@ -94,6 +96,7 @@ DATABASES = {
     'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+<<<<<<< HEAD
          'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'medical',
         'USER':'postgres',
@@ -103,6 +106,10 @@ DATABASES = {
        
        
         
+=======
+
+
+>>>>>>> cfd0f0341bf4e811f1f820babf28a1d3ffb7e278
     }
 }
 

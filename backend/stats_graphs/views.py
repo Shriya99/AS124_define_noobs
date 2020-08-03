@@ -187,27 +187,6 @@ def login_request(request):
                     template_name = "login.html",
                     context={"form":form})
 
-def register(request):
-    if request.method == "POST":
-        form =NewUserForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            username = form.cleaned_data.get('username')
-            login(request, user)
-            return redirect("main:home")
-
-        else:
-            for msg in form.error_messages:
-                print(form.error_messages[msg])
-
-            return render(request = request,
-                          template_name = "userreg.html",
-                          context={"form":form})
-    else:
-        form = NewUserForm
-        return render(request = request,
-                    template_name = "userreg.html",
-                    context={"form":form})
 
 def homeuser(request):
     try:

@@ -26,6 +26,7 @@ urlpatterns = [
     #path('calorie',views.calorie,name='calorie'),
     path('admin/', admin.site.urls),
     path('registration/',include('registration.urls')),
+    path('newreg/',include('health_register.urls')),
     path('event/',include('event_calender.urls')),
     path('homeform/',include('homeform.urls')),
     path('user/',include('user.urls')),

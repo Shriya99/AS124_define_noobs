@@ -9,20 +9,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
     <title>Poshan Saathi</title>
-   <link rel="stylesheet" href="{% static 'assets/bootstrap/css/bootstrap.min.css'%}>
+
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700">
 
     <link rel="stylesheet" href="{% static 'assets/css/Header-Blue.css'%}">
     <link rel="stylesheet" href="{% static 'assets/css/best-carousel-slide.css' %}">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
     <link rel="stylesheet" href="{% static 'assets/css/Responsive-footer.css' %}">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
-    <link rel="stylesheet" href="{% static 'assets/css/styles.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'assets/stylewa.min.css'%}">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+
     <style>
         .success{
             border: 1px solid white;
@@ -36,7 +42,7 @@
             padding-top: 5%;
             float: none;
             padding-left: 27%;
-            
+
         }
         .buttons{
             padding-bottom: 5%;
@@ -118,13 +124,13 @@
 
 
 <body class="bg-gradient-primary" style="background-color: white;">
-    
-    
+
+
     <!-- Start: Header Blue -->
     <div>
         <!-- Start: Header -->
         <div class="header-blue" style="padding: 0px;background-color: rgba(255,255,255,0.25);">
-            
+
             <!-- Start: Navigation Clean -->
             <nav class="navbar navbar-light navbar-expand-xl navigation-clean fixed-top " style="background-color: rgba(0,0,0,0.9);">
                 <div class="container">
@@ -163,7 +169,7 @@
                             </li>
                             <li class="nav-item" role="presentation" style="padding-right: 5px;">
 
-                                
+
                                 <div  class="nav-link border rounded border-secondary " id="google_translate_element" style="background-color: rgba(255,255,255,0.15);padding: 0px 5px;"></div>
                                 <script>
                                 function googleTranslateElementInit() {
@@ -175,7 +181,7 @@
                                 </script>
                                 <script src="http://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
                             </li>
-                            
+
                         </ul>
                     </div>
                 </div>
@@ -184,7 +190,7 @@
         </div>
         <!-- End: Header -->
     </div>
-    
+
     <!-- End: Header Blue -->
     <section id="carousel" style="margin-top: 8%;">
         <div class="carousel slide" data-ride="carousel" id="carousel-1" >
@@ -198,13 +204,13 @@
                         <hr style="color: rgb(0,0,0);background-color: #000000;">
                         <br/>
                         <br/>
-                        
+
 
                     </div>
 
                     <div class="col-lg-8 mx-auto">
                         <p class="text-monospace text-center text-faded mb-5" style="color: #000000;background-color: rgba(255,255,255,0.5);font-size: 30px ;font-family: 'Source Sans Pro', sans-serif;"><b>Fighting malnutrition with IT.<br>सही पोषण देश रोशन</b></p>
-                        
+
                     </div>
                     </div>
                 </div>
@@ -217,7 +223,7 @@
                         <hr style="color: rgb(0,0,0);background-color: #000000;">
                         <br/>
                         <br/>
-                        
+
 
                     </div>
 
@@ -251,6 +257,42 @@
         </div>
     </section>
 
+
+    <div class="blog-slider">
+        <div class="blog-slider__wrp swiper-wrapper">
+            <!-- Start: 1st Slide -->
+            <div class="blog-slider__item swiper-slide">
+                <div></div>
+                <div class="blog-slider__img"><img src="{% static 'assets/img/whatsapp.png'%}"></div>
+                <div class="text-center blog-slider__content">
+                    <!-- Start: Your Text --><div class="blog-slider__title"><b>To get all your Queries answered:</b></div>
+                    <!-- End: Your Text -->
+                    <!-- Start: Your Text --><div class="blog-slider__title">Contact Us : <a href="https://wa.me/14155238886">+14155238886</a> </div>
+                    <!-- End: Your Text --><a class="class=&quot;blog-slider__button " href="https://wa.me/14155238886">Open in whatsapp</a></div>
+            </div>
+            <!-- End: 1st Slide -->
+            <!-- Start: 2nd Slide -->
+            <div class="blog-slider__item swiper-slide">
+                <div></div>
+                <div class="blog-slider__img" style="background-color: rgba(0,0,0,0.1);"><img src="{% static 'assets/img/whatsapp-about-1.webp'%}"></div>
+                <div class="text-justify blog-slider__content" style="width: 439px;">
+                    <!-- Start: Your Text --><div class="blog-slider__text"><b>1. Type 1AADHARNUMBER to get dosage date and details.</b></div>
+                    <!-- End: Your Text -->
+                    <!-- Start: Your Text --><div class="blog-slider__text"><b>2. Type 2AADHARNUMBER to get list of upcoming events this month.</b></div>
+                    <!-- End: Your Text -->
+                    <!-- Start: Your Text --><div class="blog-slider__text"><b>3. Type 3AADHARNUMBER to check out the list of dates available for check up
+</b></div><div class="blog-slider__text"><b>4. Type (date in yyyy-mm-dd format)AADHARNUMBER to reschedule your dosage date.
+</b></div>
+                    <!-- End: Your Text --><a class="class=&quot;blog-slider__button" href="#">READ MORE</a></div>
+            </div>
+            <!-- End: 2nd Slide -->
+            <div class="blog-slider__pagination"></div>
+        </div>
+    </div>
+
+
+
+
     <div style="padding: 30px;">
         <div class="container">
             <div class="row justify-content-center">
@@ -264,13 +306,13 @@
                     </div>
                 </div>
                 <div class="col-lg-6" style="background-color: rgba(184,181,181,0.25);padding-bottom:2%;">
-                    
+
                         <section class="clean-block clean-form dark">
                             <div class="container" >
                                 <div class="block-heading">
                                   <br/>
                                 </div>
-                
+
                                 <div class="success">
                                     <div class="shift">
                                         <img src="{% static 'assets/img/whatsapp.png'%}" height="60%" width="60%">
@@ -299,12 +341,12 @@
                                           </div>
                                     <h3 style="text-align: center; padding: 10%;padding-top: 5%; font-weight: bold;">To get all your Queries answered:<br/><br/>
                                     Contact Us : <a href= "https://wa.me/14155238886">+14155238886 </a> </h3>
-                                   
-                                    
+
+
                                 </div>
                             </div>
                         </section>
-                    
+
                 </div>
                 <div class="col-lg-3" style="background-color: rgba(184,181,181,0.25);">
                     <div class="text-capitalize border rounded shadow card" style="margin: 5%; width: '200px'; margin-top:15%;"><a class="text-center" href="/user/user-data/"><img class="card-img-top" src="{% static 'assets/img/download.png'%}" style="padding: 20px; width='20%';"></a>
@@ -328,7 +370,7 @@
                             <h1 class="text-monospace text-center border rounded shadow flex-grow-1" style="font-family: 'Source Sans Pro', sans-serif;font-size: 45px;background-color: rgba(255,255,255,0.97); color: burlywood ;"><strong>LOCATION-WISE STATISTICS</strong></h1>
                         </div>
                     </div>
-                    
+
                 </div>
             </div>
             <!-- End: 2 Rows 1+1 Columns -->
@@ -336,22 +378,22 @@
             <div class="col-lg-12" >
             <div class="card text-white shadow ">
                 <div class="card-body" style="width: 100%; margin-top: 2%;" >
-        
-                            
-                            
+
+
+
                         <form class="search-form form-inline" method="POST" action="/home/#st-at"  style="float:center;" >
-                            
-                          
-                            
-                        
+
+
+
+
                             {% csrf_token %}
                           <input class="form-control text-dark" type="search" aria-label="Search" name="name" placeholder="enter location..." required style="  margin-left:5%;width: 80%">
-        
+
                           <button class="btn btn-outline-warning ml-1" type="submit">Search</button>
-        
+
                         </form>
                 </div>
-        
+
             <div id="container" style="width:65%; height: 100%; margin-left: 20%;padding: 2%;">
               <canvas id="pie-chart" width="90"></canvas>
             </div>
@@ -365,13 +407,13 @@
         </div>
         </div>
         </div>
-        
+
             <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
           {% if check == False %}
             <script>
-        
+
               var config = {
-        
+
                   type: 'doughnut',
                 data: {
                   datasets: [{
@@ -383,14 +425,14 @@
                         'rgba(75, 192, 192, 0.6)',
                         'rgba(153, 102, 205, 0.6)',
                         'rgba(255, 159, 64, 0.6)',
-        
+
                         'rgba(168, 180, 132, 0.5)',
                         'rgba(90, 162, 200, 0.6)',
                         'rgba(38, 206, 86, 0.6)',
                         'rgba(150, 192, 192, 0.6)',
                         'rgba(153, 38, 255, 0.6)',
                         'rgba(10, 200, 64, 0.6)'
-                      
+
                     ],
                     label: 'Visit_Status'
                   }],
@@ -400,19 +442,19 @@
                   responsive: true
                 }
               };
-        
+
               window.onload = function() {
                 var ctx = document.getElementById('pie-chart').getContext('2d');
                 window.myPie = new Chart(ctx, config);
               };
-        
+
             </script>
             {% else %}
             <script>
-               
-        
+
+
               var config = {
-        
+
                   type: 'bar',
                 data: {
                   datasets: [{
@@ -424,7 +466,7 @@
                         'rgba(75, 192, 192, 0.6)',
                         'rgba(153, 102, 205, 0.6)',
                         'rgba(255, 159, 64, 0.6)',
-        
+
                         'rgba(168, 180, 132, 0.5)',
                         'rgba(90, 162, 200, 0.6)',
                         'rgba(38, 206, 86, 0.6)',
@@ -440,12 +482,12 @@
                   responsive: true
                 }
               };
-        
+
               window.onload = function() {
                 var ctx = document.getElementById('pie-chart').getContext('2d');
                 window.myPie = new Chart(ctx, config);
               };
-        
+
             </script>
           {% endif %}
 
@@ -461,13 +503,13 @@
             <!-- Start: Links -->
             <ul class="list-inline" id="text_decoration" style="margin-top:30px;font-family:ABeeZee, sans-serif;">
                 <li class="list-inline-item"><a class="decoration" style="color:rgb(0,0,0);font-size:20px;margin-right:10px;" href="#">Home</a></li>
-                
+
                 <li class="list-inline-item"><a style="font-size:20px;color:rgb(0,0,0);margin-right:10px;" href="#">About</a></li>
                 <li class="list-inline-item"><a style="color:rgb(0,0,0);font-size:20px;margin-right:10px;" href="#">Terms</a></li>
                 <li class="list-inline-item"><a style="color:rgb(0,0,0);font-size:20px;" href="#">Privacy Policy</a></li>
             </ul>
             <!-- End: Links -->
-            
+
 
 
             <p class="text-center" style="color:rgb(193,184,184);font-family:ABeeZee, sans-serif;margin-bottom:23px;">Poshan Abhiyaan@ 2020</p>
@@ -476,6 +518,7 @@
     </div>
     <!-- End: Responsive footer -->
 </div>
+<<<<<<< HEAD
 
 <script>
     // Get the modal
@@ -504,8 +547,8 @@
       }
     }
     </script>
+=======
+<script src="{% static 'assets/script.min.js'%}"></script>
+>>>>>>> cfd0f0341bf4e811f1f820babf28a1d3ffb7e278
 </body>
 </html>
-
-
-                   
