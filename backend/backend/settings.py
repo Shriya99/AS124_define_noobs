@@ -26,8 +26,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 DEBUG = True
-
-ALLOWED_HOSTS = []
+#SECRET_KEY = 'jxf_!o0&tqq+e9mzr-x6f)m8l!xa1ks2ne4(1*91u&0igl_c89'
+#ALLOWED_HOSTS = ['127.0.0.1','42f0d8c522a8.ngrok.io']
 
 
 
@@ -94,9 +94,9 @@ DATABASES = {
     'default': {
         #'ENGINE': 'django.db.backends.sqlite3',
         #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-       
-       
-        
+
+
+
     }
 }
 
